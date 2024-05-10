@@ -2,19 +2,32 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/logo.png";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const { registerUser } = useAuth();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-        console.table(data);
+        const { name, photo_url, email, password, confirm_password } = data;
+
+        // Register user in the firebase
+        registerUser(email, password)
+            .then(credential => {
+                if (credential.user) toast.success('You have registered successfully');
+            })
+            .catch(err => {
+                console.error(err.message);
+                if (err.message === "Firebase: Error (auth/email-already-in-use).") {
+                    return toast.error('You have already registered');
+                }
+            });
     }
 
 
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+            <div className="container flex items-center justify-center h-auto px-6 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">
                         <img className="w-16 h-20" src={logo} alt="Logo" />
@@ -41,7 +54,7 @@ const Register = () => {
                                 placeholder="Name"
                                 {...register("name", { required: true })}
                             />
-                            {errors.name && <span>This field is required</span>}
+                            {errors.name && <span className="text-red-600">This field is required</span>}
                         </div>
 
                     </div>
@@ -60,7 +73,7 @@ const Register = () => {
                                 placeholder="Photo url"
                                 {...register("photo_url", { required: true })}
                             />
-                            {errors.photo_url && <span>This field is required</span>}
+                            {errors.photo_url && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
 
@@ -79,7 +92,7 @@ const Register = () => {
                                 placeholder="Email address"
                                 {...register("email", { required: true })}
                             />
-                            {errors.email && <span>This field is required</span>}
+                            {errors.email && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
 
@@ -98,7 +111,7 @@ const Register = () => {
                                 placeholder="Password"
                                 {...register("password", { required: true })}
                             />
-                            {errors.password && <span>This field is required</span>}
+                            {errors.password && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
 
@@ -117,7 +130,7 @@ const Register = () => {
                                 placeholder="Confirm Password"
                                 {...register("confirm_password", { required: true })}
                             />
-                            {errors.confirm_password && <span>This field is required</span>}
+                            {errors.confirm_password && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
 

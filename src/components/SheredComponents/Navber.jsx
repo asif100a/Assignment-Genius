@@ -1,14 +1,42 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo.png'
+import useAuth from "../../Hooks/useAuth";
+import userDefault from '../../assets/userDefault.png'
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const Navber = () => {
+    const { user, signOutUser } = useAuth();
+    const [userImg, setUserImg] = useState(userDefault);
+    console.log(user)
+
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/create_assignment'}>Create assignemnt</NavLink></li>
         <li><NavLink to={'/assignments'}>Assignments</NavLink></li>
         <li><NavLink to={'/pending_assignments'}>Pending assignments</NavLink></li>
-        {/* <li><NavLink to={'/my_submitted_assignments'}>My attempted assignment</NavLink></li> */}
+        {/*  */}
     </>;
+
+    useEffect(() => {
+        if (user) {
+            setUserImg(user?.photoUrl);
+        }
+        else {
+            setUserImg(userDefault);
+        }
+    }, [user]);
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                toast.success('You have signed out successfully');
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -34,7 +62,20 @@ const Navber = () => {
                     <Link to={'/register'} className="btn">Register</Link>
                     <Link to={'/sign_in'} className="btn">Sign in</Link>
                 </div>
-                <a className="btn">Button</a>
+
+                {
+                    user && <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src={userImg} alt="User image" />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-2">
+                            <li><Link to={'/my_submitted_assignments'}>My attempted assignment</Link></li>
+                            <li onClick={handleSignOut}><a>Sign out</a></li>
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     );

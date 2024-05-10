@@ -2,9 +2,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import logo from "../../assets/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
     const { signInUser, googleSignIn } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
@@ -14,6 +18,12 @@ const SignIn = () => {
         signInUser(email, password)
             .then(credential => {
                 if (credential.user) toast.success('You have signed in successfully');
+                if(location?.state) {
+                    navigate(location?.state);
+                }
+                else{
+                    navigate('/');
+                }
             })
             .catch(err => {
                 console.error(err.message);
@@ -28,6 +38,12 @@ const SignIn = () => {
         googleSignIn()
             .then(credential => {
                 if (credential.user) toast.success('You have signed in successfully');
+                if(location?.state) {
+                    navigate(location?.state);
+                }
+                else{
+                    navigate('/');
+                }
             })
             .catch(err => {
                 console.error(err.message);

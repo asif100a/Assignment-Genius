@@ -48,8 +48,9 @@ const Navber = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link className="text-xl">
+                <Link className="text-3xl flex gap-2 justify-center items-center">
                     <img src={logo} alt="Logo" className="w-16 h-20" />
+                    <span>Assignment Genius</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -57,11 +58,7 @@ const Navber = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <div className="mr-10 space-x-4">
-                    <Link to={'/register'} className="btn">Register</Link>
-                    <Link to={'/sign_in'} className="btn">Sign in</Link>
-                </div>
+            <div className="navbar-end mr-2">
 
                 {
                     user && <div className="dropdown dropdown-end">
@@ -74,6 +71,10 @@ const Navber = () => {
                             <li><Link to={'/my_submitted_assignments'}>My attempted assignment</Link></li>
                             <li onClick={handleSignOut}><a>Sign out</a></li>
                         </ul>
+                    </div> ||
+                    <div className="mr-2 space-x-4">
+                        <Link to={'/register'} className="btn">Register</Link>
+                        <Link to={'/sign_in'} className="btn">Sign in</Link>
                     </div>
                 }
             </div>

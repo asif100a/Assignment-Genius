@@ -8,6 +8,7 @@ import PendingAssignments from '../components/pendingAssignments.jsx/PendingAssi
 import MySubmittedAssignments from '../components/mySubmittedAssignments/MySubmittedAssignments';
 import Register from '../components/authentication/Register';
 import SignIn from '../components/authentication/SignIn';
+import ProtectedPage from '../protectedPage/ProtectedPage';
 
 const router = createBrowserRouter([
     {
@@ -20,16 +21,16 @@ const router = createBrowserRouter([
                 element: <Home />
             }, {
                 path: '/create_assignment',
-                element: <CreateAssignment />
+                element: <ProtectedPage><CreateAssignment /></ProtectedPage>
             }, {
                 path: '/assignments',
                 element: <Assignments />
             }, {
                 path: '/pending_assignments',
-                element: <PendingAssignments />
+                element: <ProtectedPage><PendingAssignments /></ProtectedPage>
             }, {
                 path: '/my_submitted_assignments',
-                element: <MySubmittedAssignments />
+                element: <ProtectedPage><MySubmittedAssignments /></ProtectedPage>
             }, {
                 path: '/register',
                 element: <Register />

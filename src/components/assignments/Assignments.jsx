@@ -1,30 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { BsFileEarmarkCheckFill } from "react-icons/bs";
 import { SiLevelsdotfyi } from "react-icons/si";
 import { CirclesWithBar } from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LiaLevelUpAltSolid } from "react-icons/lia";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const Assignments = () => {
+    const { user } = useAuth();
+    console.log(user)
 
-    const { data: assignments, isPending, isError, error } = useQuery({
-        queryKey: ['assignments'],
-        queryFn: async () => {
-            try {
-                const res = await axios.get(`http://localhost:5000/assignments`);
-                // console.log()
-                return res.data;
-            }
-            catch (error) {
-                throw new Error("Can't get data failed to fetch");
-            }
-        }
-    });
+    const [sortBy, setSortBy] = useState("");
+    const [assignments, setAssignments] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [refetch, setRefetch] = useState(false);
+    const navigate = useNavigate();
 
-    console.log(assignments);
-    // Status of fetching data
-    if (isPending) {
+    useEffect(() => {
+        axios(`http://localhost:5000/assignments?sortBy=${sortBy}`)
+            .then(res => {
+                setAssignments(res.data);
+                setLoading(false)
+            })
+    }, [sortBy, refetch]);
+
+
+    if (loading) {
         return (
             <div className="w-full h-screen flex justify-center items-center">
                 <CirclesWithBar
@@ -42,21 +45,116 @@ const Assignments = () => {
             </div>
         );
     }
-    if (isError) {
-        console.log(error);
-    }
+
+    const handleEasySort = (sort) => {
+        console.log(sort);
+        setSortBy(sort);
+    };
+    const handleMediumSort = (sort) => {
+        console.log(sort);
+        setSortBy(sort);
+    };
+    const handleHardSort = (sort) => {
+        console.log(sort);
+        setSortBy(sort);
+    };
+
+
+    // Delete functionality
+    const handleDelete = (id, email) => {
+        const loggedEmail = user?.email;
+        console.log(email, loggedEmail)
+        // User validation before delete
+        if (!loggedEmail) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Please sign in before delete",
+            }).then(() => {
+                navigate('/sign_in');
+            })
+            return;
+        }
+        if (email !== loggedEmail) {
+            return (
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid",
+                    text: "You can't delete others assignment",
+                })
+            );
+        }
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/assignments/${id}`)
+                    .then(res => {
+                        const data = res?.data;
+                        console.log(res.data);
+                        if (data?.deletedCount > 0) {
+                            swalWithBootstrapButtons.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            setRefetch(true);
+                        }
+                    })
+
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary file is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+
+
+        console.log(id)
+
+    };
+
+    // Update functionality
+    const handleUpdate = (id) => {
+        console.log(id)
+    };
 
     return (
         <div className="mt-6">
-            <div className="flex justify-center items-center">
-                <button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+            <div className="flex justify-center items-center dropdown dropdown-bottom">
+                <button tabIndex={0} role="button" className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
                     <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
                     <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400 flex gap-2 justify-center items-center">
                         <span className="relative text-white">Sort by level</span>
                         <span><LiaLevelUpAltSolid className="text-white" /></span>
                     </span>
                 </button>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li onClick={() => handleEasySort('Easy')}><a>Easy</a></li>
+                    <li onClick={() => handleMediumSort('Medium')}><a>Medium</a></li>
+                    <li onClick={() => handleHardSort('Hard')}><a>Hard</a></li>
+                </ul>
             </div>
+
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-auto p-0 lg:p-12 lg:py-6 gap-6">
                 {
@@ -82,13 +180,13 @@ const Assignments = () => {
                             </div>
 
                             <div className="flex items-center justify-between gap-x-6 mt-3">
-                                <button className="btn btn-outline btn-sm hover:bg-red-500 hover:text-white hover:border-blue-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 text-red-500 focus:outline-none">
+                                <button onClick={() => handleDelete(assignment?._id, assignment?.email)} className="btn btn-outline btn-sm hover:bg-red-500 hover:text-white hover:border-blue-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 text-red-500 focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                     </svg>
                                 </button>
 
-                                <button className="btn btn-outline btn-sm hover:bg-yellow-500 hover:text-white hover:border-green-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 text-yellow-500 focus:outline-none">
+                                <button onClick={() => handleUpdate(assignment?._id)} className="btn btn-outline btn-sm hover:bg-yellow-500 hover:text-white hover:border-green-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 text-yellow-500 focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                     </svg>

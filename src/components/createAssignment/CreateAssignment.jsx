@@ -1,70 +1,136 @@
+import axios from "axios";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useForm } from "react-hook-form";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
+
 const CreateAssignment = () => {
+    const { user } = useAuth();
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data) => {
+        const { title, description, marks, thumbnail_img, level } = data;
+
+        // Create the data
+        const email = user?.email;
+        const deadline = selectedDate;
+        const createdAssignment = { title, description, marks, thumbnail_img, level, deadline, email };
+        console.log(createdAssignment)
+
+        // Send data to the back-end
+        axios.post('http://localhost:5000/assignments',  createdAssignment )
+            .then(res => {
+                console.log(res.data);
+                const data = res?.data;
+
+                // Show a toast after successfully creation of assignment
+                if(data?.insertedId) {
+                    toast.success('You have successfully created an assignment');
+                }
+            });
+    }
+
     return (
         <div>
             <div className="max-w-lg lg:ms-auto mx-auto text-center ">
-                <div className="py-16 px-7 rounded-md bg-white">
+                <div className="py-12 px-7 rounded-md bg-white">
+                    <h1 className="mb-8 text-3xl font-semibold">Create an assignment</h1>
 
-                    <form className="" action="" method="POST">
-                        <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="" action="" method="POST">
+                        <div className="space-y-6">
                             {/* Title */}
-                            <div className="md:col-span-2">
-                                <label htmlFor="title" className="float-left block  font-normal text-gray-400 text-lg">Give a title of the assignment</label>
-                                <input type="text" id="title" name="title" placeholder="Title of the assignment" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" />
+                            <div className="">
+                                <label htmlFor="title" className="float-left block  font-normal text-gray-400 text-lg">Write a title of the assignment</label>
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder="Title of the assignment" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"
+                                    {...register("title", { required: true })}
+                                />
+                                {errors.title && <span className="text-red-600">This field is required</span>}
                             </div>
 
                             {/* Description */}
-                            <div className="md:col-span-2">
+                            <div className="">
                                 <label htmlFor="description" className="float-left block  font-normal text-gray-400 text-lg">Write the description</label>
-                                <textarea name="description" rows="5" cols="" placeholder="Description of the assignment..." className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"></textarea>
+                                <textarea
+                                    name="description"
+                                    rows="5"
+                                    cols=""
+                                    placeholder="Description of the assignment..."
+                                    className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"
+                                    {...register("description", { required: true })}
+                                ></textarea>
+                                {errors.description && <span className="text-red-600">This field is required</span>}
+                            </div>
+
+                            {/* Marks */}
+                            <div className="">
+                                <label htmlFor="marks" className="float-left block  font-normal text-gray-400 text-lg">Write the marks</label>
+                                <input
+                                    type="text"
+                                    id="marks"
+                                    name="marks"
+                                    placeholder="Marks of the assignment" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"
+                                    {...register("marks", { required: true })}
+                                />
+                                {errors.marks && <span className="text-red-600">This field is required</span>}
                             </div>
 
                             {/* Thumbnail image url */}
-                            <div className="md:col-span-2">
+                            <div className="">
                                 <label htmlFor="thumbnail_img" className="float-left block  font-normal text-gray-400 text-lg">Provide a thumbnail image url</label>
-                                <input type="text" id="thumbnail_img" name="thumbnail_img" placeholder="Thumbnail image url" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" />
+                                <input
+                                    type="text"
+                                    id="thumbnail_img"
+                                    name="thumbnail_img"
+                                    placeholder="Thumbnail image url"
+                                    className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"
+                                    {...register("thumbnail_img", { required: true })}
+                                />
+                                {errors.thumbnail_img && <span className="text-red-600">This field is required</span>}
                             </div>
 
-                            <div className="md:col-span-2">
-                                <label htmlFor="subject" className="float-left block  font-normal text-gray-400 text-lg">Vous accompagner sur :</label>
-                                <select id="subject" name="subject" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
-                                    <option value="" disabled selected>Sélectionnez un domaine</option>
-                                    <option value="Option-1">Référencement</option>
-                                    <option value="Option-2">Publicité Digitale</option>
-                                    <option value="Option-3">Brand Content</option>
-                                    <option value="Option-4">Marketing Digital</option>
-                                    <option value="Option-5">Emailing</option>
-                                    <option value="Option-6">Création Graphique</option>
-                                    <option value="Option-7">Vidéo</option>
-                                    <option value="Option-8">Ux Design</option>
-                                    <option value="Option-9">Consulting</option>
-                                    <option value="Option-10">Réalisation site internet</option>
-                                    <option value="Option-11">Réalisation d'application mobile</option>
-                                    <option value="Option-12">Réalisation d'application desktop</option>
-                                    <option value="Option-13">Recrutement</option>
-                                    <option value="Option-14">Formation</option>
-                                    <option value="Option-15">Réalisation d'un captation drone Graphique / Vidéo</option>
-                                    <option value="Option-16">Réalisation d'un montage vidéo</option>
-                                    <option value="Option-17">Autre</option>
-
+                            {/* Assignment difficulty level */}
+                            <div className="">
+                                <label htmlFor="level" className="float-left block  font-normal text-gray-400 text-lg">Select difficulty level for assignment</label>
+                                <select
+                                    id="level"
+                                    name="level"
+                                    className="w-full px-3 border border-gray-300 rounded-md py-2  focus:outline-none focus:border-blue-700"
+                                    {...register("level", { required: true })}
+                                >
+                                    <option value="" disabled selected>Select a difficulty level</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
                                 </select>
+                                {errors.level && <span className="text-red-600 text-start">This field is required</span>}
                             </div>
 
+                            {/* Date picker */}
+                            <div className="w-full">
+                                <h5 className="text-start float-left block  font-normal text-gray-400 text-lg">Pick a deadline for the assignment</h5>
+                                <div className="text-start">
+                                    <DatePicker
+                                        selected={selectedDate}
+                                        // onSelect={} //when day is clicked
+                                        onChange={date => setSelectedDate(date)} //only when value has changed
+                                        dateFormat={'dd/MM/yyyy'}
+                                        minDate={new Date()}
+                                        showYearDropdown
+                                        scrollableMonthYearDropdown
+                                        className="px-3 border border-gray-300 rounded-md py-2  focus:outline-none focus:border-blue-700 w-[456px]"
+                                    />
+                                </div>
+                            </div>
 
-                            <div className="md:col-span-2">
-                                <label htmlFor="subject" className="float-left block  font-normal text-gray-400 text-lg">Ajoutez un brief ou une pièce jointe de votre projet :</label>
-                                <input type="file" id="file" name="file" placeholder="Charger votre fichier" className="peer block w-full appearance-none border-none   bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" />
-                            </div>
-                            <div className="md:col-span-2">
-                                <textarea name="message" rows="5" cols="" placeholder="Votre Massage *" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"></textarea>
-                            </div>
-                            <div className="md:col-span-2">
-                                <input type="checkbox" name="" id="" className="mr-2 sm:m-1" />
-                                <label htmlFor="" className="text-sm col-span-2">
-                                    Autoriser OC à vous envoyer des lettres d'information par E-mail.
-                                </label>
-                            </div>
-                            <div className="md:col-span-2">
-                                <button className="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Valider</button>
+                            <div className="">
+                                <input type="submit" value={'Create the assignment'} className="py-3 text-base font-medium rounded text-white bg-blue-500 w-full hover:bg-blue-700 transition duration-300" />
                             </div>
                         </div>
                     </form>

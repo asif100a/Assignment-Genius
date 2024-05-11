@@ -10,7 +10,7 @@ const CreateAssignment = () => {
     const { user } = useAuth();
     const [selectedDate, setSelectedDate] = useState(new Date());
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         const { title, description, marks, thumbnail_img, level } = data;
 
@@ -29,6 +29,8 @@ const CreateAssignment = () => {
                 // Show a toast after successfully creation of assignment
                 if(data?.insertedId) {
                     toast.success('You have successfully created an assignment');
+                    reset();
+                    setSelectedDate(new Date());
                 }
             });
     }
@@ -105,9 +107,9 @@ const CreateAssignment = () => {
                                     {...register("level", { required: true })}
                                 >
                                     <option value="" disabled selected>Select a difficulty level</option>
-                                    <option value="easy">Easy</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="hard">Hard</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
                                 </select>
                                 {errors.level && <span className="text-red-600 text-start">This field is required</span>}
                             </div>

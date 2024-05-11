@@ -4,13 +4,6 @@ import { CirclesWithBar } from "react-loader-spinner";
 
 const Features = () => {
 
-    // useEffect(() => {
-    //     axios('http://localhost:5000/features')
-    //         .then(res => {
-    //             console.log(res)
-    //         })
-    // }, []);
-
     const { data: featurs, isPending, isError, error } = useQuery({
         queryKey: ['features'],
         queryFn: async () => {

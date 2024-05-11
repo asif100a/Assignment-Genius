@@ -16,12 +16,12 @@
  * Done: Design the footer with copyright information and relevant links.
  */
 
-// Step 3: Create Assignment Page (Private)
+// Step 3: Create Assignment Page (Private) ✅
 /**
- * Design the form for creating assignments.
- * Implement input fields for assignment title, description, marks, thumbnail URL, difficulty level, and due date.
- * Integrate the react-datepicker package for selecting the due date.
- * Show success message upon successful assignment creation.
+ * Done: Design the form for creating assignments.
+ * Done: Implement input fields for assignment title, description, marks, thumbnail URL, difficulty level, and due date.
+ * Done: Integrate the react-datepicker package for selecting the due date.
+ * Done: Show success message upon successful assignment creation.
  */
 
 // Step 4: Assignments Page (Public)

@@ -1,0 +1,69 @@
+[
+    {
+      "feature": "Assignment Submission",
+      "description": "Students can easily submit their assignments online.",
+      "functionality": "Users can upload files, enter text, or provide links for assignment submissions.",
+      "benefits": [
+        "Streamlines the submission process",
+        "Reduces paperwork",
+        "Ensures all assignments are stored digitally for easy access"
+      ],
+      "img": "https://i.ibb.co/bQSspFb/download.jpg"
+    },
+    {
+      "feature": "Grading and Feedback",
+      "description": "Teachers can grade assignments and provide feedback to students.",
+      "functionality": "Teachers can view submitted assignments, grade them, add comments, and provide feedback.",
+      "benefits": [
+        "Allows for efficient grading",
+        "Enables personalized feedback",
+        "Facilitates communication between teachers and students"
+      ],
+      "img": "https://i.ibb.co/qFSL4nm/grading-communication.png"
+    },
+    {
+      "feature": "Deadline Management",
+      "description": "Students and teachers can track assignment deadlines.",
+      "functionality": "Users receive notifications for upcoming assignment deadlines, and they can view a calendar with all assignment due dates.",
+      "benefits": [
+        "Helps students and teachers stay organized",
+        "Ensures assignments are submitted on time",
+        "Reduces the likelihood of missed deadlines"
+      ],
+      "img": "https://i.ibb.co/1nLdmzD/1-8sh-M1-BL1jf-Mp-Meh-Il-P1-s-Q.png"
+    },
+    {
+      "feature": "Resource Library",
+      "description": "Provides access to resources related to assignments.",
+      "functionality": "Users can access lecture notes, study materials, reference materials, and other resources relevant to their assignments.",
+      "benefits": [
+        "Supports students in their learning process",
+        "Enhances understanding of assignment topics",
+        "Promotes independent learning"
+      ],
+      "img": "https://i.ibb.co/bLXLgjh/resource-library.jpg"
+    },
+    {
+      "feature": "Discussion Forums",
+      "description": "Enables discussion and collaboration among students and teachers.",
+      "functionality": "Users can participate in discussion forums to ask questions, seek clarification, and discuss assignment-related topics.",
+      "benefits": [
+        "Fosters a sense of community",
+        "Encourages collaboration",
+        "Facilitates peer-to-peer learning"
+      ],
+      "img": "https://i.ibb.co/52JmvjT/forums-Image.jpg"
+    },
+    {
+      "feature": "Progress Tracking",
+      "description": "Allows students and teachers to monitor assignment progress.",
+      "functionality": "Users can track the status of assignments, view grades, and monitor completion rates.",
+      "benefits": [
+        "Helps students identify areas for improvement",
+        "Allows teachers to assess student performance",
+        "Promotes accountability"
+      ],
+      "img": "https://i.ibb.co/h2P3dMv/Purple-Boy-Inprogress-Vector.webp"
+    }
+  ]
+  

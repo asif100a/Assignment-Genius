@@ -2,14 +2,14 @@
 
 // Step 1: Initial Setup
 /**
- * Set up your development environment.
- * Create a new project folder/repository.
- * Initialize your frontend and backend environments (e.g., React for frontend, Node.js/Express for backend).
+ * Done: Set up your development environment.
+ * Done: Create a new project folder/repository.
+ * Done: Initialize your frontend and backend environments (e.g., React for frontend, Node.js/Express for backend).
  */
 
 // Step 2: Homepage (Public)
 /**
- * Create the navbar with appropriate links based on the user's authentication state.
+ * Done: Create the navbar with appropriate links based on the user's authentication state.
  * Design the banner section according to the project theme.
  * Implement the feature section with cards displaying various features.
  * Add a FAQ section with frequently asked questions.

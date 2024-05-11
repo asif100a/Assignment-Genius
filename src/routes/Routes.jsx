@@ -9,6 +9,7 @@ import MySubmittedAssignments from '../components/mySubmittedAssignments/MySubmi
 import Register from '../components/authentication/Register';
 import SignIn from '../components/authentication/SignIn';
 import ProtectedPage from '../protectedPage/ProtectedPage';
+import UpdateField from '../components/assignments/sub-components/UpdateField';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             }, {
                 path: '/assignments',
                 element: <Assignments />
+            }, {
+            }, {
+                path: '/update_field',
+                element: <UpdateField />
             }, {
                 path: '/pending_assignments',
                 element: <ProtectedPage><PendingAssignments /></ProtectedPage>

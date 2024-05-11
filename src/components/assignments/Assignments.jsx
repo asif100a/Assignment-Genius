@@ -2,7 +2,7 @@ import axios from "axios";
 import { BsFileEarmarkCheckFill } from "react-icons/bs";
 import { SiLevelsdotfyi } from "react-icons/si";
 import { CirclesWithBar } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { LiaLevelUpAltSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -134,8 +134,22 @@ const Assignments = () => {
     };
 
     // Update functionality
-    const handleUpdate = (id) => {
-        console.log(id)
+    const handleUpdate = (assignment) => {
+        const loggedEmail = user?.email;
+        console.log(loggedEmail)
+        // User validation before update
+        if (!loggedEmail) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Please sign in before update",
+            }).then(() => {
+                navigate('/sign_in');
+            })
+            return;
+        }
+
+        navigate('/update_field', {state: assignment});
     };
 
     return (
@@ -186,7 +200,7 @@ const Assignments = () => {
                                     </svg>
                                 </button>
 
-                                <button onClick={() => handleUpdate(assignment?._id)} className="btn btn-outline btn-sm hover:bg-yellow-500 hover:text-white hover:border-green-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 text-yellow-500 focus:outline-none">
+                                <button onClick={() => handleUpdate(assignment)} className="btn btn-outline btn-sm hover:bg-yellow-500 hover:text-white hover:border-green-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 text-yellow-500 focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                     </svg>

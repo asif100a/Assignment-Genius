@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Root from '../root/Root';
 import ErrorPage from '../errorPage/ErrorPage';
 import Home from '../components/home/Home';
@@ -10,6 +10,7 @@ import Register from '../components/authentication/Register';
 import SignIn from '../components/authentication/SignIn';
 import ProtectedPage from '../protectedPage/ProtectedPage';
 import UpdateField from '../components/assignments/sub-components/UpdateField';
+import AssignmentDetails from '../components/assignments/sub-components/AssignmentDetails';
 
 const router = createBrowserRouter([
     {
@@ -27,9 +28,12 @@ const router = createBrowserRouter([
                 path: '/assignments',
                 element: <Assignments />
             }, {
-            }, {
                 path: '/update_field',
-                element: <UpdateField />
+                element: <ProtectedPage><UpdateField /></ProtectedPage>
+            }, {
+                path: '/assignment_details/:id',
+                element: <ProtectedPage><AssignmentDetails /></ProtectedPage>,
+                loader: ({params} ) => fetch(`${import.meta.env.VITE_URL}/assignment_details/${params.id}`)
             }, {
                 path: '/pending_assignments',
                 element: <ProtectedPage><PendingAssignments /></ProtectedPage>

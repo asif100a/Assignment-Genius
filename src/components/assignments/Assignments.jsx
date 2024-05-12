@@ -173,7 +173,7 @@ const Assignments = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-auto p-0 lg:p-12 lg:py-6 gap-6">
                 {
                     assignments.map(assignment => (
-                        <div key={assignment?._id} className="w-full max-w-md px-4 py-2 mt-6 bg-white border border-red-400 rounded-lg shadow-lg dark:bg-gray-800">
+                        <div key={assignment?._id} className={`w-full max-w-md px-4 py-2 mt-6 bg-white border border-red-400 rounded-lg shadow-lg dark:bg-gray-800 ${assignment?.level === 'Easy' && 'inset-0 aspect-video border bg-gradient-to-b from-green-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'}  ${assignment?.level === 'Medium' &&  'inset-0 aspect-video bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'} ${assignment?.level === 'Hard' && 'inset-0 aspect-video border bg-gradient-to-b from-red-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'}`}>
                             <div className="flex flex-col-reverse md:flex-row mt-3 md:justify-between items-center">
                                 <h2 className="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0 w-72">{assignment?.title}</h2>
                                 <img className="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400" alt="Testimonial avatar" src={assignment?.thumbnail_img} />
@@ -208,7 +208,7 @@ const Assignments = () => {
                             </div>
 
                             <div className="flex justify-center mt-4 mb-2">
-                                <Link to={''} className="text-lg font-medium text-blue-600 dark:text-blue-300" tabIndex="0" role="link"><button className="btn ">View assignment</button></Link>
+                                <Link to={`/assignment_details/${assignment?._id}`} className="text-lg font-medium text-blue-600 dark:text-blue-300" tabIndex="0" role="link"><button className="btn ">View assignment</button></Link>
                             </div>
                         </div>
                     ))

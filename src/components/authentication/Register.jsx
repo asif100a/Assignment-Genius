@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Register = () => {
     const { registerUser } = useAuth();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         const { name, photo_url, email, password, confirm_password } = data;
 
@@ -15,6 +15,7 @@ const Register = () => {
         registerUser(email, password)
             .then(credential => {
                 if (credential.user) toast.success('You have registered successfully');
+                reset();
             })
             .catch(err => {
                 console.error(err.message);
@@ -135,7 +136,7 @@ const Register = () => {
                     </div>
 
                     <div className="mt-6">
-                        <input type="submit" value={'Sign Up'} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" />
+                        <input type="submit" value={'Sign Up'} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:cursor-pointer" />
 
                         <div className="mt-6 text-center ">
                             <div className="text-sm">

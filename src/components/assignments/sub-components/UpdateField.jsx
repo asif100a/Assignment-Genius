@@ -1,12 +1,14 @@
+import axios from "axios";
 import { useState } from "react";
 import ReactDatePicker from "react-datepicker";
-import { useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UpdateField = () => {
     const location = useLocation();
-    console.log(location.state);
+    const navigate = useNavigate();
     const assignment = location?.state;
-    const { title, description, marks, thumbnail_img, level, deadline } = assignment;
+    const { _id, title, description, marks, thumbnail_img, level, deadline } = assignment;
     const date = new Date(deadline);
 
 
@@ -20,8 +22,33 @@ const UpdateField = () => {
 
     const [selectedDate, setSelectedDate] = useState(assignmentDete);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Get the value from the field
+        const form = new FormData(e.currentTarget);
+        const title = form.get('title');
+        const description = form.get('description');
+        const marks = form.get('marks');
+        const thumbnail_img = form.get('thumbnail_img');
+        const level = form.get('level');
+        const deadline = selectedDate;
+
+        // Make object for updated data
+        const updatedData = { title, description, marks, thumbnail_img, level, deadline };
+
+        // Send updated data to the back-end
+        try {
+            const { data } = await axios.put(`${import.meta.env.VITE_URL}/assignments/${_id}`, updatedData)
+            console.log(data);
+            if (data?.modifiedCount > 0) {
+                toast.success('You have updated assignment successfully');
+                navigate('/assignments')
+            }
+        }
+        catch (error) {
+            throw new Error(error);
+        }
     };
 
     return (

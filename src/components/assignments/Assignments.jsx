@@ -2,7 +2,7 @@ import axios from "axios";
 import { BsFileEarmarkCheckFill } from "react-icons/bs";
 import { SiLevelsdotfyi } from "react-icons/si";
 import { CirclesWithBar } from "react-loader-spinner";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LiaLevelUpAltSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -19,7 +19,7 @@ const Assignments = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios(`http://localhost:5000/assignments?sortBy=${sortBy}`)
+        axios(`${import.meta.env.VITE_URL}/assignments?sortBy=${sortBy}`)
             .then(res => {
                 setAssignments(res.data);
                 setLoading(false)
@@ -102,7 +102,7 @@ const Assignments = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/assignments/${id}`)
+                axios.delete(`${import.meta.env.VITE_URL}/assignments/${id}`)
                     .then(res => {
                         const data = res?.data;
                         console.log(res.data);

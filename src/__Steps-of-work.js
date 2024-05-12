@@ -26,9 +26,9 @@
 
 // Step 4: Assignments Page (Public)
 /**
- * Display all assignments created by any user.
- * Implement filtering functionality based on assignment difficulty level.
- * Design cards for individual assignments showing thumbnail, title, marks, and difficulty level.
+ * Done: Display all assignments created by any user.
+ * Done: Implement filtering functionality based on assignment difficulty level.
+ * Done: Design cards for individual assignments showing thumbnail, title, marks, and difficulty level.
  * Add buttons for delete, update, and view assignment functionalities.
  */
 

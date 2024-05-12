@@ -7,7 +7,7 @@ const Features = () => {
     const { data: featurs, isPending, isError, error } = useQuery({
         queryKey: ['features'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/features')
+            const res = await fetch(`${import.meta.env.VITE_URL}/features`);
             return res.json();
         }
     });

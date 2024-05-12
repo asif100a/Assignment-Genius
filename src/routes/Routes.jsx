@@ -33,13 +33,13 @@ const router = createBrowserRouter([
             }, {
                 path: '/assignment_details/:id',
                 element: <ProtectedPage><AssignmentDetails /></ProtectedPage>,
-                loader: ({params} ) => fetch(`${import.meta.env.VITE_URL}/assignment_details/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_URL}/assignment_details/${params.id}`)
             }, {
                 path: '/pending_assignments',
                 element: <ProtectedPage><PendingAssignments /></ProtectedPage>
             }, {
                 path: '/my_submitted_assignments',
-                element: <ProtectedPage><MySubmittedAssignments /></ProtectedPage>
+                element: <ProtectedPage><MySubmittedAssignments /></ProtectedPage>,
             }, {
                 path: '/register',
                 element: <Register />

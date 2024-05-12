@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import { FaLevelUpAlt } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { LuCalendarClock } from "react-icons/lu";
@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 const AssignmentDetails = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
     const textRef = useRef();
     const [error, setError] = useState("");
     const [error2, setError2] = useState("");
@@ -49,7 +50,7 @@ const AssignmentDetails = () => {
         const form = new FormData(e.currentTarget);
         let doc_link = form.get('doc_link');
         let note = form.get('note');
-        const examineeEmail = user?.email;
+        const examinee = user;
         const status = "pending";
 
 
@@ -60,11 +61,11 @@ const AssignmentDetails = () => {
             return setError2("Please fill up this field");
         }
 
-        console.log(examineeEmail)
+        console.log(examinee)
         console.log({ doc_link, note });
 
         // Make submitted data in object
-        const submittedData = { doc_link, note, examineeEmail, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status };
+        const submittedData = { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status };
 
         // Send submitted data to the back-end
         axios.post(`${import.meta.env.VITE_URL}/submittedAssignments`, submittedData)
@@ -75,7 +76,7 @@ const AssignmentDetails = () => {
                     e.target.doc_link.value = "";
                     e.target.note.value = "";
                     toast.success('You have successfully submitted your assignment');
-                    handleHideModal();
+                    navigate('/my_submitted_assignments')
                 }
             })
 

@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 
-const TableRow = ({ assignment }) => {
+const RowOfTable = ({ assignment }) => {
     const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
-
-    console.log(doc_link, note)
-
+    console.log(examinee?.displayName)
     return (
         <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -23,24 +21,27 @@ const TableRow = ({ assignment }) => {
                 <h4>{title}</h4>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <p>{marks}</p>
-            </td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                 <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-blue-100 dark:bg-gray-800">
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
 
                     <h2 className="text-sm font-normal text-blue-500">{status}</h2>
                 </div>
             </td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                <p>{marks}</p>
+            </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <button className='btn'>Give mark</button>
+                {'no mentioned'}
+            </td>
+            <td className="px-4 py-4 text-sm whitespace-nowrap">
+                {'no mentioned'}
             </td>
         </tr>
     );
 };
 
-TableRow.propTypes = {
+RowOfTable.propTypes = {
     assignment: PropTypes.object
 };
 
-export default TableRow;
+export default RowOfTable;

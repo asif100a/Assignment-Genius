@@ -11,6 +11,7 @@ import SignIn from '../components/authentication/SignIn';
 import ProtectedPage from '../protectedPage/ProtectedPage';
 import UpdateField from '../components/assignments/sub-components/UpdateField';
 import AssignmentDetails from '../components/assignments/sub-components/AssignmentDetails';
+import GivingMark from '../components/pendingAssignments.jsx/sub-components/GivingMark';
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             }, {
                 path: '/pending_assignments',
                 element: <ProtectedPage><PendingAssignments /></ProtectedPage>
+            }, {
+            }, {
+                path: '/giving_mark',
+                element: <ProtectedPage><GivingMark /></ProtectedPage>
             }, {
                 path: '/my_submitted_assignments',
                 element: <ProtectedPage><MySubmittedAssignments /></ProtectedPage>,

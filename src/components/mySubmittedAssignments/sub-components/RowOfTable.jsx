@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const RowOfTable = ({ assignment }) => {
-    const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
+    const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status, obtained_mark, feedback } = assignment;
     console.log(examinee?.displayName)
     return (
         <tr>
@@ -31,10 +31,10 @@ const RowOfTable = ({ assignment }) => {
                 <p>{marks}</p>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                {'no mentioned'}
+                {obtained_mark ? obtained_mark : 'no mentioned'}
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                {'no mentioned'}
+                {feedback ? feedback : 'no mentioned'}
             </td>
         </tr>
     );

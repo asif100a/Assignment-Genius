@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const TableRow = ({ assignment }) => {
     const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
@@ -33,7 +34,7 @@ const TableRow = ({ assignment }) => {
                 </div>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <button className='btn'>Give mark</button>
+                <Link to={`/giving_mark`} state={assignment} className='btn'>Give mark</Link>
             </td>
         </tr>
     );

@@ -3,19 +3,48 @@ import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/logo.png";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import { useState } from "react";
 
 const Register = () => {
     const { registerUser } = useAuth();
+    const [passwordError, setPasswordError] = useState("");
+    const [confirm_passwordError, setConfirm_passwordError] = useState("");
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         const { name, photo_url, email, password, confirm_password } = data;
 
+        // Reset the error
+        setPasswordError("");
+        setConfirm_passwordError("");
+
+        // Password validation
+        if(password.length < 6) {
+            return setPasswordError("Please provide at least 6 character of password");
+        }
+        if(!/[A-Z]/.test(password)) {
+            return setPasswordError("Please provide at least one character of 'uppercase'");
+        }
+        else if(!/[a-z]/.test(password)) {
+            return setPasswordError("Please provide at least one character of 'lowercase'");
+        }
+        else if(confirm_password !== password) {
+            return setConfirm_passwordError("Please confirm password as the same password");
+        }
+
         // Register user in the firebase
         registerUser(email, password)
             .then(credential => {
-                if (credential.user) toast.success('You have registered successfully');
-                reset();
+                updateProfile(credential?.user, {
+                    displayName: name,
+                    photoURL: photo_url,
+                }).then(() => {
+                    if (credential.user) toast.success('You have registered successfully');
+                    reset();
+                }).catch(err => {
+                    console.log(err.message);
+                })
             })
             .catch(err => {
                 console.error(err.message);
@@ -113,6 +142,7 @@ const Register = () => {
                                 {...register("password", { required: true })}
                             />
                             {errors.password && <span className="text-red-600">This field is required</span>}
+                            {passwordError && <p className="text-red-600">{passwordError}</p>}
                         </div>
                     </div>
 
@@ -132,6 +162,7 @@ const Register = () => {
                                 {...register("confirm_password", { required: true })}
                             />
                             {errors.confirm_password && <span className="text-red-600">This field is required</span>}
+                            {confirm_passwordError && <p className="text-red-600">{confirm_passwordError}</p>}
                         </div>
                     </div>
 

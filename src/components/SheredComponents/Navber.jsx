@@ -62,7 +62,7 @@ const Navber = () => {
 
                 {
                     user && <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div tabIndex={0} role="button" title={user?.displayName} className="btn btn-ghost btn-circle avatar">
                             <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={userImg} alt="User image" />
                             </div>

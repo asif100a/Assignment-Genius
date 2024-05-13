@@ -2,15 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import TableRow from "./sub-components/TableRow";
 import { CirclesWithBar } from "react-loader-spinner";
+import { useLocation } from "react-router-dom";
 
 const PendingAssignments = () => {
     const [assignments, setAssignments] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const pendingAssignments = "pending";
+    const location = useLocation()
+    console.log(location)
 
     useEffect(() => {
         const assignments = async () => {
             try {
-                const { data } = await axios.get(`${import.meta.env.VITE_URL}/submittedAssignments`);
+                const { data } = await axios.get(`${import.meta.env.VITE_URL}/submittedAssignments/${pendingAssignments}`);
                 console.log(data);
                 setAssignments(data);
                 setIsLoading(false);
@@ -58,7 +62,7 @@ const PendingAssignments = () => {
                                     <tr>
                                         <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             <div className="flex items-center gap-x-3">
-                                                <span>Name</span>
+                                                <span>Examinee name</span>
                                             </div>
                                         </th>
 

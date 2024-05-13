@@ -1,10 +1,29 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const TableRow = ({ assignment }) => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
+
     const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
 
     console.log(doc_link, note)
+
+    const handleGivingMark = () => {
+        if (examinee?.email === user?.email) {
+            return (
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "You are not able to give your mark",
+                })
+            );
+
+        }
+        navigate(`/giving_mark`)
+    };
 
     return (
         <tr>
@@ -34,7 +53,7 @@ const TableRow = ({ assignment }) => {
                 </div>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <Link to={`/giving_mark`} state={assignment} className='btn'>Give mark</Link>
+                <Link onClick={handleGivingMark} state={assignment} className='btn'>Give mark</Link>
             </td>
         </tr>
     );

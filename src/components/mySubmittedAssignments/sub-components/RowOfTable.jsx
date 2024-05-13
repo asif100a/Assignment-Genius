@@ -21,20 +21,20 @@ const RowOfTable = ({ assignment }) => {
                 <h4>{title}</h4>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-blue-100 dark:bg-gray-800">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                <div className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 ${status === 'pending' && 'bg-blue-100'} ${status === 'completed' && 'bg-green-100'}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${status === 'pending' && 'bg-blue-500'} ${status === 'completed' && 'bg-green-600'}`}></span>
 
-                    <h2 className="text-sm font-normal text-blue-500">{status}</h2>
+                    <h2 className={`text-sm font-normal ${status === 'pending' && 'text-blue-500'} ${status === 'completed' && 'text-green-600'}`}>{status}</h2>
                 </div>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                 <p>{marks}</p>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                {obtained_mark ? obtained_mark : 'no mentioned'}
+                {obtained_mark ? obtained_mark : ''}
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                {feedback ? feedback : 'no mentioned'}
+                {feedback ? feedback : ''}
             </td>
         </tr>
     );

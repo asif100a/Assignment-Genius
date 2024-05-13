@@ -1,12 +1,21 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const GivingMark = () => {
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
     const { user } = useAuth();
     const location = useLocation();
+    console.log(location)
+
+    if(!location?.state) {
+        return navigate('/pending_assignments');
+    }
 
     const assignment = location?.state;
     const { _id, doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
@@ -35,7 +44,18 @@ const GivingMark = () => {
         // Send data to the back-end
         axios.put(`${import.meta.env.VITE_URL}/submittedAssignments/${_id}`, updatedData)
             .then(res => {
-                console.log(res.data);
+                const data = res.data
+                console.log(data);
+                if(data?.modifiedCount > 0) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Successful",
+                        text: "You have completed giving mark successfully",
+                    }).then(() => {
+                        reset();
+                        navigate('/pending_assignments')
+                    })
+                }
             });
 
     }

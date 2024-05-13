@@ -1,4 +1,4 @@
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaLevelUpAlt } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { LuCalendarClock } from "react-icons/lu";
@@ -15,10 +15,13 @@ const AssignmentDetails = () => {
     const textRef = useRef();
     const [error, setError] = useState("");
     const [error2, setError2] = useState("");
-    
+    console.log(user)
+
+
 
     const assignment = useLoaderData();
     const { title, description, marks, thumbnail_img, level, deadline, email } = assignment;
+    console.log(assignment.email)
 
     const newDate = new Date(deadline);
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -29,6 +32,9 @@ const AssignmentDetails = () => {
 
     // Show the Modal
     const handleShowModal = () => {
+        if (creatorEmail === user?.email) {
+            return toast.error("You can't take assignment as you have created it");
+        }
         textRef.current.classList.remove('hidden');
     };
 
@@ -50,7 +56,12 @@ const AssignmentDetails = () => {
         const form = new FormData(e.currentTarget);
         let doc_link = form.get('doc_link');
         let note = form.get('note');
-        const examinee = user;
+
+        // Save examinee info 
+        const email = user?.email;
+        const displayName = user?.displayName;
+        const examinee = { email, displayName };
+        console.log(examinee)
         const status = "pending";
 
 

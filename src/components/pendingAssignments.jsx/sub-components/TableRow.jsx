@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 const TableRow = ({ assignment }) => {
     const { user } = useAuth();
+    console.log(user);
     const navigate = useNavigate();
 
     const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
@@ -31,7 +32,7 @@ const TableRow = ({ assignment }) => {
                 <div className="inline-flex items-center gap-x-3">
 
                     <div className="flex items-center gap-x-2">
-                        <img className="object-cover w-10 h-10 rounded-full" src={thumbnail_img} alt="image" />
+                        <img className="object-cover w-10 h-10 rounded-full" src={examinee?.photoURL} alt="image" />
                         <div>
                             <h2 className="font-medium text-gray-800 dark:text-white ">{examinee?.displayName}</h2>
                             <p className="text-sm font-normal text-gray-600 dark:text-gray-400">{examinee?.email}</p>

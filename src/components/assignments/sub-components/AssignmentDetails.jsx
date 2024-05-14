@@ -60,7 +60,8 @@ const AssignmentDetails = () => {
         // Save examinee info 
         const email = user?.email;
         const displayName = user?.displayName;
-        const examinee = { email, displayName };
+        const photoURL = user?.photoURL;
+        const examinee = { email, displayName, photoURL };
         console.log(examinee)
         const status = "pending";
 
@@ -98,7 +99,7 @@ const AssignmentDetails = () => {
             <div className="mx-auto px-6 max-w-6xl text-gray-500">
                 <div className="text-center">
                     <h2 className="text-3xl text-gray-950 dark:text-white font-semibold">Assignment details</h2>
-                    <p className="mt-6 text-gray-700 dark:text-gray-300 w-[36rem] mx-auto">See the details about {title} and can take assignment on {title}.</p>
+                    <p className="mt-6 text-gray-700 dark:text-gray-300 w-full md:w-[36rem] mx-auto">See the details about {title} and can take assignment on {title}.</p>
                 </div>
                 <div className="mt-12 max-w-xl mx-auto">
 

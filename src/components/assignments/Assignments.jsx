@@ -170,7 +170,7 @@ const Assignments = () => {
             </div>
 
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-auto p-0 lg:p-12 lg:py-6 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[95%] lg:w-full mx-auto p-0 lg:p-12 lg:py-6 gap-6">
                 {
                     assignments.map(assignment => (
                         <div key={assignment?._id} className={`w-full max-w-md px-4 py-2 mt-6 bg-white border border-red-400 rounded-lg shadow-lg dark:bg-gray-800 ${assignment?.level === 'Easy' && 'inset-0 aspect-video border bg-gradient-to-b from-green-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'}  ${assignment?.level === 'Medium' &&  'inset-0 aspect-video bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'} ${assignment?.level === 'Hard' && 'inset-0 aspect-video border bg-gradient-to-b from-red-500 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10'}`}>

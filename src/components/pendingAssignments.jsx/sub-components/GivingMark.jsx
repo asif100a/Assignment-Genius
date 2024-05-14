@@ -74,7 +74,7 @@ const GivingMark = () => {
                             <h3 id="tier-startup" className="text-2xl font-semibold leading-8 text-blue-600">Submitted info</h3>
                             <div className="mt-6 flex flex-col gap-y-1">
                                 <p className="text-base font-semibold">PDF or doc link:</p>
-                                <Link className="hover:text-blue-500 text-orange-600 hover:underline">{doc_link}</Link>
+                                <Link className="hover:text-blue-500 text-orange-600 hover:underline whitespace-nowrap overflow-x-auto py-2 md:py-0">{doc_link}</Link>
                             </div>
                             <div className="mt-6 flex flex-col gap-y-1">
                                 <p className="text-base font-semibold">Student notes: </p>
@@ -105,7 +105,7 @@ const GivingMark = () => {
                                     <label htmlFor="feedback">Feedback of the assignment:</label>
                                     <textarea
                                         name="feedback"
-                                        className="text-gray-400 pl-2 pt-1 rounded-md outline-none bg-transparent border-1 border"
+                                        className="text-gray-400 pl-2 pt-1 rounded-md outline-none bg-transparent border-1 border w-full"
                                         rows="3"
                                         cols="50"
                                         placeholder="Feedback field"

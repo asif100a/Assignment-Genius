@@ -99,7 +99,7 @@ const CreateAssignment = () => {
 
                             {/* Assignment difficulty level */}
                             <div className="">
-                                <label htmlFor="level" className="float-left block  font-normal text-gray-400 text-lg">Select difficulty level for assignment</label>
+                                <label htmlFor="level" className="float-left block font-normal text-gray-400 text-lg">Select difficulty level for assignment</label>
                                 <select
                                     id="level"
                                     name="level"
@@ -126,7 +126,7 @@ const CreateAssignment = () => {
                                         minDate={new Date()}
                                         showYearDropdown
                                         scrollableMonthYearDropdown
-                                        className="px-3 border border-gray-300 rounded-md py-2  focus:outline-none focus:border-blue-700 w-[456px]"
+                                        className="px-3 border border-gray-300 rounded-md py-2  focus:outline-none focus:border-blue-700 w-full md:w-[456px]"
                                     />
                                 </div>
                             </div>

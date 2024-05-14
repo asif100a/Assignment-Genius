@@ -4,10 +4,11 @@ import useAuth from "../../Hooks/useAuth";
 import userDefault from '../../assets/userDefault.png'
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FiMenu } from "react-icons/fi";
 
 const Navber = () => {
     const { user, signOutUser } = useAuth();
-    const [userImg, setUserImg] = useState(userDefault);
+    // const [userImg, setUserImg] = useState(userDefault);
     console.log(user)
 
     const navLinks = <>
@@ -17,15 +18,6 @@ const Navber = () => {
         <li><NavLink to={'/pending_assignments'}>Pending assignments</NavLink></li>
         {/*  */}
     </>;
-
-    useEffect(() => {
-        if (user) {
-            setUserImg(user?.photoUrl);
-        }
-        else {
-            setUserImg(userDefault);
-        }
-    }, [user]);
 
     const handleSignOut = () => {
         signOutUser()
@@ -38,14 +30,27 @@ const Navber = () => {
     };
 
     return (
-        <div className="navbar bg-base-100">
-            <div className="navbar-start">
+        <div className="navbar bg-base-100 border">
+            <div className="md:navbar-start flex-row-reverse md:flex-row w-full justify-between">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <FiMenu className="w-6 h-6" />
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0">
                         {navLinks}
+
+                        {
+                            user ?
+                                <>
+                                    <li><NavLink to={'/my_submitted_assignments'}>My submition</NavLink></li>
+                                    <li onClick={handleSignOut}><a>Sign out</a></li>
+                                </>
+                                :
+                                <>
+                                    <li><NavLink to={'/register'}>Register</NavLink></li>
+                                    <li><NavLink to={'/sign_in'}>Sign in</NavLink></li>
+                                </>
+                        }
                     </ul>
                 </div>
                 <Link className="text-3xl flex gap-2 justify-center items-center">
@@ -58,17 +63,21 @@ const Navber = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end mr-2">
+            <div className="navbar-end mr-2 hidden md:flex">
 
                 {
                     user && <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" title={user?.displayName} className="btn btn-ghost btn-circle avatar">
                             <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={userImg} alt="User image" />
+                                {
+                                    user?.photoURL &&
+                                    <img src={user?.photoURL} alt="User image" /> ||
+                                    <img src={userDefault} alt="User image" />
+                                }
                             </div>
                         </div>
                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-2">
-                            <li><Link to={'/my_submitted_assignments'}>My attempted assignment</Link></li>
+                            <li><Link to={'/my_submitted_assignments'}>My submition</Link></li>
                             <li onClick={handleSignOut}><a>Sign out</a></li>
                         </ul>
                     </div> ||

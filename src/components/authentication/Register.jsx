@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/logo.png";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Register = () => {
     const { registerUser } = useAuth();
+    const navigate = useNavigate();
     const [passwordError, setPasswordError] = useState("");
     const [confirm_passwordError, setConfirm_passwordError] = useState("");
 
@@ -20,31 +21,32 @@ const Register = () => {
         setConfirm_passwordError("");
 
         // Password validation
-        if(password.length < 6) {
+        if (password.length < 6) {
             return setPasswordError("Please provide at least 6 character of password");
         }
-        if(!/[A-Z]/.test(password)) {
+        if (!/[A-Z]/.test(password)) {
             return setPasswordError("Please provide at least one character of 'uppercase'");
         }
-        else if(!/[a-z]/.test(password)) {
+        else if (!/[a-z]/.test(password)) {
             return setPasswordError("Please provide at least one character of 'lowercase'");
         }
-        else if(confirm_password !== password) {
+        else if (confirm_password !== password) {
             return setConfirm_passwordError("Please confirm password as the same password");
         }
 
         // Register user in the firebase
-        registerUser(email, password)
+        registerUser(email, password, name, photo_url)
             .then(credential => {
-                updateProfile(credential?.user, {
-                    displayName: name,
-                    photoURL: photo_url,
-                }).then(() => {
-                    if (credential.user) toast.success('You have registered successfully');
-                    reset();
-                }).catch(err => {
-                    console.log(err.message);
-                })
+                    updateProfile(credential?.user, {
+                        displayName: name,
+                        photoURL: photo_url,
+                    }).then(() => {
+                        if (credential.user) toast.success('You have registered successfully');
+                        reset();
+                        navigate('/');
+                    }).catch(err => {
+                        console.log(err.message);
+                    })
             })
             .catch(err => {
                 console.error(err.message);
@@ -58,7 +60,7 @@ const Register = () => {
     return (
         <section className="bg-white dark:bg-gray-900">
             <div className="container flex items-center justify-center h-auto px-6 mx-auto">
-                <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
+                <form onSubmit={handleSubmit(onSubmit)} className="w-[324px] md:w-[448px]">
                     <div className="flex justify-center mx-auto">
                         <img className="w-16 h-20" src={logo} alt="Logo" />
                     </div>
@@ -80,7 +82,7 @@ const Register = () => {
                             <input
                                 type="text"
                                 name="name"
-                                className="block w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="w-[324px] md:w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 placeholder="Name"
                                 {...register("name", { required: true })}
                             />
@@ -99,7 +101,7 @@ const Register = () => {
                             <input
                                 type="text"
                                 name="photo_url"
-                                className="block w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="w-[324px] md:w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 placeholder="Photo url"
                                 {...register("photo_url", { required: true })}
                             />
@@ -118,7 +120,7 @@ const Register = () => {
                             <input
                                 type="email"
                                 name="email"
-                                className="block w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="w-[324px] md:w-[28rem] py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 placeholder="Email address"
                                 {...register("email", { required: true })}
                             />
@@ -137,7 +139,7 @@ const Register = () => {
                             <input
                                 type="password"
                                 name="password"
-                                className="block w-[28rem] px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="w-[324px] md:w-[28rem] px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 placeholder="Password"
                                 {...register("password", { required: true })}
                             />
@@ -157,7 +159,7 @@ const Register = () => {
                             <input
                                 type="password"
                                 name="confirm_password"
-                                className="block w-[28rem] px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="w-[324px] md:w-[28rem] px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 placeholder="Confirm Password"
                                 {...register("confirm_password", { required: true })}
                             />
@@ -167,7 +169,7 @@ const Register = () => {
                     </div>
 
                     <div className="mt-6">
-                        <input type="submit" value={'Sign Up'} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:cursor-pointer" />
+                        <input type="submit" value={'Sign Up'} className="w-[324px] md:w-[28rem] px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:cursor-pointer" />
 
                         <div className="mt-6 text-center ">
                             <div className="text-sm">

@@ -42,7 +42,7 @@ const Features = () => {
         <section className="bg-gradient-to-r from-purple-900 to-indigo-900 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-extrabold text-white sm:text-5xl w-[38rem] mx-auto">
+                    <h2 className="text-4xl font-extrabold text-white sm:text-5xl w-full md:w-[38rem] mx-auto">
                         The main features of our Assignment Genius
                     </h2>
                     <p className="mt-4 text-xl text-purple-200">

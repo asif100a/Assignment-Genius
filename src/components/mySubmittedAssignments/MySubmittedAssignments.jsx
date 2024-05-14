@@ -2,20 +2,41 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import RowOfTable from "./sub-components/RowOfTable";
+import { CirclesWithBar } from "react-loader-spinner";
 
 const MySubmittedAssignments = () => {
     const {user} = useAuth();
     const [assignments, setAssignments] = useState([]);
-    console.log(assignments)
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
 
-        axios(`${import.meta.env.VITE_URL}/my_submitted_assignments/${user?.email}`)
+        axios(`${import.meta.env.VITE_URL}/my_submitted_assignments/${user?.email}`, {withCredentials: true})
             .then(res => {
-                console.log(res.data)
                 setAssignments(res?.data);
+                setIsLoading(false);
             })
     }, [user?.email]);
+
+    // if data is loading
+    if (isLoading) {
+        return (
+            <div className="w-full h-screen flex justify-center items-center">
+                <CirclesWithBar
+                    height="100"
+                    width="100"
+                    color="#4fa94d"
+                    outerCircleColor="#4fa94d"
+                    innerCircleColor="#4fa94d"
+                    barColor="#4fa94d"
+                    ariaLabel="circles-with-bar-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            </div>
+        );
+    }
 
     return (
         <section className="container px-4 mx-auto mt-6">

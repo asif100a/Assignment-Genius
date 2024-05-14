@@ -24,7 +24,7 @@
  * Done: Show success message upon successful assignment creation.
  */
 
-// Step 4: Assignments Page (Public)
+// Step 4: Assignments Page (Public) ✅
 /**
  * Done: Display all assignments created by any user.
  * Done: Implement filtering functionality based on assignment difficulty level.
@@ -32,24 +32,24 @@
  * Done: Add buttons for delete, update, and view assignment functionalities.
  */
 
-// Step 5: My Submitted/Attempted Assignment Page (Private)
+// Step 5: My Submitted/Attempted Assignment Page (Private) ✅
 /**
- * Display assignments submitted by the logged-in user.
- * Show assignment title, status, marks, obtained marks, and feedback (if available).
+ * Done: Display assignments submitted by the logged-in user.
+ * Done: Show assignment title, status, marks, obtained marks, and feedback (if available).
  */
 
-// Step 6: Pending Assignments Page (Private)
+// Step 6: Pending Assignments Page (Private) ✅
 /**
- * Display all pending assignments submitted by any user.
- * Show assignment title, marks, examinee name, and a button to give marks.
- * Implement modal or new page for giving marks and feedback.
+ * Done: Display all pending assignments submitted by any user.
+ * Done: Show assignment title, marks, examinee name, and a button to give marks.
+ * Done: Implement modal or new page for giving marks and feedback.
  */
 
 // ----------------------------------------------------
 
 // Step 4: Additional Features (Optional)
 /**
- * Implement form validation for assignment creation and authentication forms.
+ * Done: Implement form validation for assignment creation and authentication forms.
  * Show a preview of PDFs with iframe on the submitted assignment page.
  * Add a theme toggling button for changing between light and dark themes.
  * Implement loading spinners for data loading states.

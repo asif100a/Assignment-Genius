@@ -19,7 +19,7 @@ const Assignments = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios(`${import.meta.env.VITE_URL}/assignments?sortBy=${sortBy}`)
+        axios(`${import.meta.env.VITE_URL}/assignments?sortBy=${sortBy}`, {withCredentials: true})
             .then(res => {
                 setAssignments(res.data);
                 setLoading(false)

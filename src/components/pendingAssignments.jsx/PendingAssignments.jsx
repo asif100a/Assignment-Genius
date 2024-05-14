@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import TableRow from "./sub-components/TableRow";
 import { CirclesWithBar } from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import qs from 'qs'
 
 const PendingAssignments = () => {
+    const {user} = useAuth();
     const [assignments, setAssignments] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    const pendingAssignments = "pending";
     const location = useLocation()
     console.log(location)
-
+    
     useEffect(() => {
+        const email = user?.email;
         const assignments = async () => {
             try {
-                const { data } = await axios.get(`${import.meta.env.VITE_URL}/submittedAssignments/${pendingAssignments}`);
+                const { data } = await axios.get(`${import.meta.env.VITE_URL}/submittedAssignments/${email}`, {withCredentials: true});
                 console.log(data);
                 setAssignments(data);
                 setIsLoading(false);
@@ -25,7 +28,7 @@ const PendingAssignments = () => {
         };
 
         assignments();
-    }, []);
+    }, [user?.email]);
     console.log(assignments)
 
     if (isLoading) {

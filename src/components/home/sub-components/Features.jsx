@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { CirclesWithBar } from "react-loader-spinner";
+import FeatureImg from '../../../assets/features-icon.jpg';
 
 const Features = () => {
 
@@ -56,8 +57,8 @@ const Features = () => {
                         featurs.map(feature => (
                             <div key={feature._id} className="bg-white bg-opacity-10 rounded-lg shadow-lg p-6 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 m-4">
-                                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
-                                        Basic
+                                    <span className="inline-flex items-center px-1 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                                        <img src={FeatureImg} alt="" className="w-7 h-7" />
                                     </span>
                                 </div>
                                 <div className="mb-8">

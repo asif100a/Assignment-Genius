@@ -1,12 +1,65 @@
+import Lottie from 'react-lottie';
+import animation1 from './animation1.json';
+import animation2 from './animation2.json';
+import animation3 from './animation3.json';
+import animation4 from './animation4.svg';
+import wonAnimate from './won.svg'
+
 const Banner = () => {
+    const defaultOptions = {
+        loop: true,
+        autoPlay: true,
+        animationData: animation1,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
+
+    const animate2options = {
+        loop: true,
+        autoPlay: true,
+        animationData: animation2,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    }
+
+    const animate3options = {
+        loop: true,
+        autoPlay: true,
+        animationData: animation3,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    }
+
     return (
         <div className="relative">
             <img src="https://i.ibb.co/CHSGVj6/chrome-8o-TEMJP1-IP.png" alt="" className="w-full h-[346px] md:h-[700px]" />
-            <div className="absolute top-0 right-0 left-0 w-full h-[346px] md:h-[700px] bg-black bg-opacity-25">
-                <h1>amar</h1>
-                {/* <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 2000" width="2000" height="2000" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
-                <path id="T7JIM747XF" fill="rgb(227,247,233)" fillOpacity="1" d=" M342.2099914550781,44.98699951171875 C342.10699462890625,-112.93000030517578 365.8500061035156,-154.73800659179688 280.27301025390625,-288.14898681640625 C194.697998046875,-421.55999755859375 -15.081999778747559,-451.10400390625 -173.7220001220703,-352.1499938964844 C-332.3609924316406,-253.1959991455078 -375.0140075683594,-125.93699645996094 -375.0140075683594,-125.93699645996094 C-375.0140075683594,-125.93699645996094 -432.57501220703125,22.709999084472656 -351.6860046386719,172.38999938964844 C-277.7130126953125,309.3110046386719 -132.03799438476562,387.1029968261719 -5.688000202178955,451.10400390625 C-5.688000202178955,451.10400390625 317.3949890136719,451.10400390625 317.3949890136719,451.10400390625 C337.0329895019531,434.552001953125 353.7300109863281,414.79901123046875 366.77801513671875,392.677001953125 C432.57501220703125,281.95599365234375 342.3340148925781,202.9040069580078 342.2099914550781,44.98699951171875z"></path>
-                </svg> */}
+            <div className="absolute top-0 right-0 left-0 w-full h-[346px] md:h-[700px] bg-black bg-opacity-45">
+                <div className='flex justify-evenly items-center border border-red-700 w-full h-[346px] md:h-[700px]'>
+                    <div>
+                        <h1 className='text-7xl font-bold text-gray-100'>Assignment Genius</h1>
+                        <p className='text-gray-100 text-lg w-[36rem] mt-6'>Assignment Genius is a service provider that offers high-quality assignment writing services to students and professionals. The platform is known for its commitment to delivering original and timely assignments, which include coursework, research papers, and various other types of academic work. </p>
+
+                        <div className='border-8 border-white bg-white bg-opacity-25 rounded-lg mt-6'>
+                            <Lottie options={animate2options} height={330} width={450} />
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col gap-6 h-[346px] md:h-[700px] '>
+                        <div className='flex justify-center items-center gap-4'>
+                            <Lottie options={animate3options} height={100} width={100} />
+                            <img src={animation4} alt="" className='w-40 h-40' />
+                        </div>
+
+                        <div className='mt-8'>
+                            <Lottie options={defaultOptions} height={400} width={400} />
+                        </div>
+                    </div>
+
+                    
+                </div>
             </div>
         </div>
     );

@@ -21,7 +21,7 @@ const CreateAssignment = () => {
         console.log(createdAssignment)
 
         // Send data to the back-end
-        axios.post(`${import.meta.env.VITE_URL}/assignments`, createdAssignment )
+        axios.post(`${import.meta.env.VITE_URL}/assignments`, createdAssignment, {withCredentials: true} )
             .then(res => {
                 console.log(res.data);
                 const data = res?.data;

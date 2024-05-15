@@ -52,7 +52,7 @@
  * Done: Implement form validation for assignment creation and authentication forms.
  * Show a preview of PDFs with iframe on the submitted assignment page.
  * Add a theme toggling button for changing between light and dark themes.
- * Implement loading spinners for data loading states.
+ * Done: Implement loading spinners for data loading states.
  * Explore and implement animations using Framer Motion.
  * Add one extra feature of your own choice.
  */

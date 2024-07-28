@@ -1,23 +1,49 @@
-# React + Vite
+------------------------------------------------------------------------
+# Assignment Genius
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [Assignment Genius](https://assignment-11-9bd1a.web.app/)
 
-Currently, two official plugins are available:
+## Overview
+Assignment Genius is a platform where users can interact with various assignments. Users can browse assignments without logging in and can take assignments after registering or logging in. Logged-in users have the ability to update assignments, but they cannot delete assignments created by others. Additionally, users can mark others' submitted assignments, but not their own. Users can also view their submissions on the "My Submission" page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Browse Assignments:** Users can browse assignments without the need to log in.
+- **Take Assignments:** Users can take assignments after logging in or registering.
+- **Update Assignments:** Logged-in users can update any assignment if needed.
+- **Mark Assignments:** Users can give marks on others' submitted assignments but cannot mark their own submissions.
+- **View Submissions:** Users can view their submitted assignments in the "My Submission" page.
 
+## Assignment Category
+- **Category ID:** assignment_category_0001
 
-# About My Website
+### Technologies that have used:
 
-Website name: Assignment Genius
-Live site url: https://assignment-11-9bd1a.web.app/
+ - **HTML**
+ - **CSS**
+ - **JavaScript**
+ - **React.js**
+ - **Node.js**
+ - **Express.js**
+ - **MongoDB**
 
-The main features the website:-
-    * A user can visite the assignments without login & can take assignment after login or register.
-    * Any logged user can update any assignment if needed.
-    * A user can't delete others assignment that is not created by him/her.
-    * Any user can give mark on others submitted assignment & he/she can't give mark on his/her submitted assignment.
-    * A use can see his/her submitted assignment in the "My submition" page
+### To run the code of the website:
+Follow these steps:
 
-Assignment-category: assignment_category_0001    
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- **Node.js**: [Download and install Node.js](https://nodejs.org/)
+- **npm** (Node Package Manager).
+
+### Installation
+- **npm**: For client-side and server-side
+- **Firebase**: For client side
+
+#### Backend (Node.js and Express.js)
+
+1. **Clone the repository**:
+   ```bash
+   https://github.com/asif100a/Assignment-genius-server
+
+--------------------------------------------------------------------------

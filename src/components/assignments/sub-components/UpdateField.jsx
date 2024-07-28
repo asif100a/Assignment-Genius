@@ -53,8 +53,8 @@ const UpdateField = () => {
 
     return (
         <div>
-            <div className="max-w-lg lg:ms-auto mx-auto text-center ">
-                <div className="py-12 px-7 rounded-md bg-white">
+            <div className="max-w-lg lg:ms-auto mx-auto text-center my-12">
+                <div className="py-12 px-7 rounded-md bg-white border mx-3">
                     <h1 className="mb-8 text-3xl font-semibold">Update the assignment</h1>
                     <form onSubmit={handleSubmit} className="" action="" method="POST">
                         <div className="space-y-6">

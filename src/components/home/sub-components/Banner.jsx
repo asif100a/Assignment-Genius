@@ -35,30 +35,41 @@ const Banner = () => {
 
     return (
         <div className="relative">
-            <img src="https://i.ibb.co/CHSGVj6/chrome-8o-TEMJP1-IP.png" alt="" className="w-full h-[346px] md:h-[700px]" />
-            <div className="absolute top-0 right-0 left-0 w-full h-[346px] md:h-[700px] bg-black bg-opacity-45">
-                <div className='flex justify-evenly items-center border border-red-700 w-full h-[346px] md:h-[700px]'>
-                    <div>
-                        <h1 className='text-7xl font-bold text-gray-100'>Assignment Genius</h1>
-                        <p className='text-gray-100 text-lg w-[36rem] mt-6'>Assignment Genius is a service provider that offers high-quality assignment writing services to students and professionals. The platform is known for its commitment to delivering original and timely assignments, which include coursework, research papers, and various other types of academic work. </p>
+            <img src="https://i.ibb.co/CHSGVj6/chrome-8o-TEMJP1-IP.png" alt="" className="w-full h-[356px] md:h-[700px]" />
+            <div className="absolute top-0 right-0 left-0 w-full h-[356px] md:h-[700px] bg-black bg-opacity-45">
+                <div className='flex flex-col lg:flex-row justify-evenly items-center w-full h-[346px] md:h-[700px] mx-2 md:mx-0'>
+                    <div className='mt-3 md:mt-6 lg:mt-0 '>
+                        <h1 className='text-4xl md:text-7xl font-bold text-gray-100'>Assignment Genius</h1>
+                        <p className='text-gray-100 text-base md:text-lg w-full md:w-[36rem] mt-2 md:mt-6'>Assignment Genius is a service provider that offers high-quality assignment writing services to students and professionals. The platform is known for its commitment to delivering original and timely assignments, which include coursework, research papers, and various other types of academic work. </p>
 
-                        <div className='border-8 border-white bg-white bg-opacity-25 rounded-lg mt-6'>
-                            <Lottie options={animate2options} height={330} width={450} />
+                        <div className='flex gap-6 justify-start items-center'>
+                            <div className='border-8 border-white w-fit lg:w-auto px-0 lg:px-8 bg-white bg-opacity-25 rounded-lg mt-4 md:mt-6'>
+                                <div className='h-[100px] w-[150px] md:h-[220px] md:w-[340px] lg:h-[330px] lg:w-[450px]'>
+                                    <Lottie options={animate2options} />
+                                </div>
+                            </div>
+                            <div className='h-[116px] w-[116px] md:h-[250px] md:w-[250px] flex lg:hidden'>
+                                <Lottie options={defaultOptions} />
+                            </div>
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-6 h-[346px] md:h-[700px] '>
-                        <div className='flex justify-center items-center gap-4'>
-                            <Lottie options={animate3options} height={100} width={100} />
+                    <div className='md:flex flex-col gap-6 h-[346px] md:h-[700px] hidden'>
+                        <div className='flex justify-center items-center gap-4 mt-6 lg:mt-0'>
+                            <div className='h-[100px] w-[100px]'>
+                                <Lottie options={animate3options} />
+                            </div>
                             <img src={animation4} alt="" className='w-40 h-40' />
                         </div>
 
-                        <div className='mt-8'>
-                            <Lottie options={defaultOptions} height={400} width={400} />
+                        <div className='mt-8 hidden lg:flex'>
+                            <div className='h-[400px] w-[400px]'>
+                                <Lottie options={defaultOptions} />
+                            </div>
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>

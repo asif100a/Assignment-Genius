@@ -2,8 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { CirclesWithBar } from "react-loader-spinner";
 import FeatureImg from '../../../assets/features-icon.jpg';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Features = () => {
+
+    // useEffect(() => {
+    //     const getData = async() => {
+    //         const {data} = await axios.get(`${import.meta.env.VITE_URL}/features`);
+    //         console.log(data);
+    //         setFeatureData(data);
+    //     };
+
+    //     getData();
+    // }, [])
+
 
     const { data: featurs, isPending, isError, error } = useQuery({
         queryKey: ['features'],
@@ -12,8 +25,9 @@ const Features = () => {
             return res.json();
         }
     });
-    console.log(featurs)
+    console.log(featurs);
 
+    
     if (isPending) {
         return (
             <div className="w-full h-screen flex justify-center items-center">
@@ -53,7 +67,7 @@ const Features = () => {
 
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-                    {
+                    {/* {
                         featurs.map(feature => (
                             <div key={feature._id} className="bg-white bg-opacity-10 rounded-lg shadow-lg p-6 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 m-4">
@@ -83,7 +97,7 @@ const Features = () => {
 
                             </div>
                         ))
-                    }
+                    } */}
                 </div>
             </div>
         </section>

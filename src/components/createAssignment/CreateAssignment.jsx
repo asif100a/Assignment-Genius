@@ -18,12 +18,10 @@ const CreateAssignment = () => {
         const email = user?.email;
         const deadline = selectedDate;
         const createdAssignment = { title, description, marks, thumbnail_img, level, deadline, email };
-        console.log(createdAssignment)
 
         // Send data to the back-end
         axios.post(`${import.meta.env.VITE_URL}/assignments`, createdAssignment, {withCredentials: true} )
             .then(res => {
-                console.log(res.data);
                 const data = res?.data;
 
                 // Show a toast after successfully creation of assignment
@@ -37,8 +35,8 @@ const CreateAssignment = () => {
 
     return (
         <div>
-            <div className="max-w-lg lg:ms-auto mx-auto text-center ">
-                <div className="py-12 px-7 rounded-md bg-white">
+            <div className="max-w-lg lg:ms-auto mx-auto text-center my-12">
+                <div className="py-12 px-7 rounded-md bg-white border mx-3">
                     <h1 className="mb-8 text-3xl font-semibold">Create an assignment</h1>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="" action="" method="POST">

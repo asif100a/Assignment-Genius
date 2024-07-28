@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&family=Playwrite+MX:wght@100..400&display=swap');
+
+.playwrite-au-tas {
+    font-family: "Playwrite AU TAS", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.menu li > *:not(ul, .menu-title, details, .btn):active,
+.menu li > *:not(ul, .menu-title, details, .btn).active,
+.menu li > details > summary:active {
+    background-color: white;
+    color: rgb(79, 78, 78);
+    font-size: medium;
+    border: 4px double gray;
+    height: auto;
+    min-height: auto;
+    padding: 4px 8px;
+}
+
+.menu li > *:not(ul, .menu-title, details, .btn):hover {
+    background-color: white;
+    color: rgb(79, 78, 78);
+    font-size: medium;
+    border-bottom: 4px double gray;
+    height: auto;
+    min-height: auto;
+    padding: 4px 8px;
+}
+
+.menu li > *:not(ul, .menu-title, details, .btn) {
+    background-color: white;
+    color: rgb(79, 78, 78);
+    font-size: medium;
+    border-bottom: 4px double white;
+    height: auto;
+    min-height: auto;
+    padding: 4px 8px;
+}

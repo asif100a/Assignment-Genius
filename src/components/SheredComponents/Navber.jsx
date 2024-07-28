@@ -5,6 +5,7 @@ import userDefault from '../../assets/userDefault.png'
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FiMenu } from "react-icons/fi";
+import "./navber.css";
 
 const Navber = () => {
     const { user, signOutUser } = useAuth();
@@ -73,11 +74,11 @@ const Navber = () => {
                 </div>
                 <Link className="text-3xl flex gap-2 justify-center items-center">
                     <img src={logo} alt="Logo" className="w-16 h-20" />
-                    <span>Assignment Genius</span>
+                    <span className="text-gray-600 playwrite-au-tas">Assignment Genius</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 space-x-3 font-noto-serif">
                     {navLinks}
                 </ul>
             </div>

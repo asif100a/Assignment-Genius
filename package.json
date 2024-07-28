@@ -13,6 +13,7 @@
     "@tanstack/react-query": "^5.35.5",
     "axios": "^1.6.8",
     "firebase": "^10.11.1",
+    "lottie-react": "^2.4.0",
     "qs": "^6.12.1",
     "react": "^18.2.0",
     "react-datepicker": "^6.9.0",
@@ -23,7 +24,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-lottie": "^1.2.4",
     "react-router-dom": "^6.23.0",
-    "sweetalert2": "^11.11.0"
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

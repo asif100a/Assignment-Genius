@@ -5,23 +5,12 @@ import FeatureImg from '../../../assets/features-icon.jpg';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Features = () => {
-
-    // useEffect(() => {
-    //     const getData = async() => {
-    //         const {data} = await axios.get(`${import.meta.env.VITE_URL}/features`);
-    //         console.log(data);
-    //         setFeatureData(data);
-    //     };
-
-    //     getData();
-    // }, [])
-
-
+const Features = () => {       
     const { data: featurs, isPending, isError, error } = useQuery({
         queryKey: ['features'],
         queryFn: async () => {
             const res = await fetch(`${import.meta.env.VITE_URL}/features`);
+            // const res = await fetch(`http://localhost:5000/features`);
             return res.json();
         }
     });
@@ -47,6 +36,7 @@ const Features = () => {
         );
     }
     if (isError) {
+        console.error(error);
         return (
             toast.error(error.message)
         );
@@ -56,18 +46,18 @@ const Features = () => {
 
         <section className="bg-gradient-to-r from-purple-900 to-indigo-900 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl font-extrabold text-white sm:text-5xl w-full md:w-[38rem] mx-auto">
-                        The main features of our Assignment Genius
+                <div className="text-center my-8">
+                    <h2 className="text-4xl font-bold font-noto-serif text-white sm:text-5xl w-full md:w-[38rem] mx-auto">
+                        Features of Assignment Genius
                     </h2>
-                    <p className="mt-4 text-xl text-purple-200">
+                    <p className="mt-4 text-xl text-purple-200 font-pt-serif">
                         Unlock the power of decentralized finance with our cutting-edge solutions.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 pt-8">
 
-                    {/* {
+                    {
                         featurs.map(feature => (
                             <div key={feature._id} className="bg-white bg-opacity-10 rounded-lg shadow-lg p-6 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 m-4">
@@ -76,8 +66,8 @@ const Features = () => {
                                     </span>
                                 </div>
                                 <div className="mb-8">
-                                    <h3 className="text-2xl font-semibold text-white">{feature?.feature}</h3>
-                                    <p className="mt-4 text-purple-200">{feature?.description}</p>
+                                    <h3 className="text-2xl font-semibold text-white font-pt-serif">{feature?.feature}</h3>
+                                    <p className="mt-4 text-purple-200 font-pt-serif">{feature?.description}</p>
                                 </div>
                                 <div className="mb-8">
                                     <img src={feature?.img} alt="Feature photo" className="rounded-md w-[328px] h-[154px]" />
@@ -89,7 +79,7 @@ const Features = () => {
                                                 <svg className="h-6 w-6 text-green-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                                 </svg>
-                                                <span>{benefit}</span>
+                                                <span className="font-pt-serif">{benefit}</span>
                                             </li>
                                         ))
                                     }
@@ -97,7 +87,7 @@ const Features = () => {
 
                             </div>
                         ))
-                    } */}
+                    }
                 </div>
             </div>
         </section>

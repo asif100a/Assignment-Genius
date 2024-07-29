@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import './tableRow.css';
 
 const TableRow = ({ assignment }) => {
     const { user } = useAuth();
     console.log(user);
     const navigate = useNavigate();
 
-    const { doc_link, note, examinee, title, description, marks, thumbnail_img, level, deadline, creatorEmail, status } = assignment;
+    const { doc_link, note, examinee, title, marks, status } = assignment;
 
     console.log(doc_link, note)
 
@@ -54,7 +55,7 @@ const TableRow = ({ assignment }) => {
                 </div>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <Link onClick={handleGivingMark} state={assignment} className='btn'>Give mark</Link>
+                <Link onClick={handleGivingMark} state={assignment} className='btn bg-inherit btn-border ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white shadow-none hover:shadow-none'>Give mark</Link>
             </td>
         </tr>
     );

@@ -156,7 +156,7 @@ const Assignments = () => {
     return (
         <section className="py-12 bg-gray-50">
             <div className="flex justify-center items-center dropdown dropdown-bottom">
-                <button tabIndex={0} role="button" className="relative text-gray-700 btn-border ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white px-4 py-3 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                <button tabIndex={0} role="button" className="relative text-gray-700 btn-border ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white px-4 py-3 inline-flex items-center justify-center font-bold font-pt-serif overflow-hidden group rounded-md">
                     <span className="relative">Sort by level</span>
                     <span><LiaLevelUpAltSolid className="" /></span>
                 </button>
@@ -173,7 +173,7 @@ const Assignments = () => {
                     assignments.map(assignment => (
                         <div key={assignment?._id} className={`w-full max-w-sm p-6 bg-inherit card-border`}>
                             <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center md:gap-3">
-                                <h2 className="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0 w-full md:w-72">{assignment?.title}</h2>
+                                <h2 className="mt-2 text-xl font-semibold font-noto-serif text-gray-800 dark:text-white md:mt-0 w-full md:w-72">{assignment?.title}</h2>
                                 <img className="object-cover w-20 h-20 border-2 border-gray-700 rounded-full dark:border-blue-400" alt="Testimonial avatar" src={assignment?.thumbnail_img} />
                             </div>
 
@@ -181,13 +181,13 @@ const Assignments = () => {
                                 <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                                     <BsFileEarmarkCheckFill className="text-gray-600 w-6 h-6" />
 
-                                    <h1 className="px-2 font-bold">Marks: <span className="text-gray-500 font-medium">{assignment?.marks}</span></h1>
+                                    <h1 className="px-2 font-bold font-pt-serif">Marks: <span className="text-gray-500 font-medium">{assignment?.marks}</span></h1>
                                 </div>
 
                                 <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                                     <SiLevelsdotfyi className="text-gray-600 w-5 h-5" />
 
-                                    <h1 className="px-2 font-bold">Level: <span className={`font-medium ${assignment?.level === 'Easy' && 'text-green-600'} ${assignment?.level === 'Medium' && 'text-blue-600'} ${assignment?.level === 'Hard' && 'text-red-500'}`}>{assignment?.level}</span></h1>
+                                    <h1 className="px-2 font-bold font-pt-serif">Level: <span className={`font-medium ${assignment?.level === 'Easy' && 'text-green-600'} ${assignment?.level === 'Medium' && 'text-blue-600'} ${assignment?.level === 'Hard' && 'text-red-500'}`}>{assignment?.level}</span></h1>
                                 </div>
                             </div>
 
@@ -206,7 +206,7 @@ const Assignments = () => {
                             </div>
 
                             <div className="flex justify-center mt-6 mb-2">
-                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium text-gray-700 ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white dark:text-blue-300">View assignment</button></Link>
+                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium font-pt-serif text-gray-700 ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white dark:text-blue-300">View assignment</button></Link>
                             </div>
                         </div>
                     ))

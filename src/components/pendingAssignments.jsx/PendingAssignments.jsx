@@ -4,6 +4,7 @@ import TableRow from "./sub-components/TableRow";
 import { CirclesWithBar } from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import "./pendingAssignment.css";
 
 const PendingAssignments = () => {
     const {user} = useAuth();
@@ -50,17 +51,17 @@ const PendingAssignments = () => {
     }
 
     return (
-        <section className="container px-4 mx-auto mt-6">
+        <section className="container px-4 mx-auto py-12 bg-gray-50">
             <div className="">
-                <h2 className="text-3xl text-center font-medium text-gray-800 dark:text-white">The list of pending assignments</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-semibold font-noto-serif text-gray-800 dark:text-white capitalize">The list of pending assignments</h2>
             </div>
 
-            <div className="flex flex-col mt-6">
-                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="flex flex-col mt-8">
+                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                <thead className="bg-gray-50 dark:bg-gray-800">
+                        <div className="overflow-hidden border-4 border-double border-[#808080] dark:border-gray-700 md:rounded-lg">
+                            <table className="min-w-full">
+                                <thead className="bg-inherit border-b-double dark:bg-gray-800">
                                     <tr>
                                         <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             <div className="flex items-center gap-x-3">
@@ -85,7 +86,7 @@ const PendingAssignments = () => {
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                <tbody className="bg-inherit divide-y-2 divide-[#808080] dark:divide-[#808080] dark:bg-gray-900">
                                     {
                                         assignments?.map(assignment => <TableRow
                                             key={assignment._id}

@@ -1,0 +1,6 @@
+.faq-border{
+    border: 4px double gray;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: inherit;
+}

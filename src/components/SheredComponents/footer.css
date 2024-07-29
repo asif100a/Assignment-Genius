@@ -1,0 +1,15 @@
+.border-top{
+    border-top: 4px double gray;
+}
+
+.border-top-single{
+    border-top: 2px solid gray;
+}
+
+.link-border div a {
+    border-bottom: 2px solid white;
+}
+
+.link-border div a:hover {
+    border-bottom: 2px solid gray;
+}

@@ -1,15 +1,18 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import './footer.css';
 
 const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-gray-900">
+        <footer className="bg-white dark:bg-gray-900 border-top">
             <div className="container px-6 py-8 mx-auto">
                 <div className="flex flex-col items-center text-center">
-                    <a href="#">
-                        <img className="w-16 h-20" src={logo} alt="Logo" />
-                    </a>
+                    <Link to={'/'}>
+                        <img className="w-16 h-20 mx-auto" src={logo} alt="Logo" />
+                        <span className="text-gray-600 text-2xl text-center playwrite-au-tas">Assignment Genius</span>
+                    </Link>
 
-                    <div className='flex gap-32'>
+                    <div className='flex gap-32 mt-6 link-border'>
                         <div className="flex flex-wrap justify-center mt-6 -mx-4">
                             <a href="#" className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Home </a>
 
@@ -28,7 +31,7 @@ const Footer = () => {
 
                 </div>
 
-                <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+                <hr className="my-6 border-top-single" />
 
                 <div className="flex flex-col items-center sm:flex-row sm:justify-between">
                     <p className="text-sm text-gray-500 dark:text-gray-300">© Copyright 2021. All Rights Reserved by Assignment Genius.</p>

@@ -1,0 +1,13 @@
+.btn-border{
+    border: 4px double gray;
+}
+
+.card-border{
+    border: 4px double gray;
+    border-radius: 12px;
+}
+
+.mini-btn-border{
+    border: 4px double gray;
+    border-radius: 8px;
+}

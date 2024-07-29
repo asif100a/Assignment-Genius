@@ -20,12 +20,12 @@ const CreateAssignment = () => {
         const createdAssignment = { title, description, marks, thumbnail_img, level, deadline, email };
 
         // Send data to the back-end
-        axios.post(`${import.meta.env.VITE_URL}/assignments`, createdAssignment, {withCredentials: true} )
+        axios.post(`${import.meta.env.VITE_URL}/assignments`, createdAssignment, { withCredentials: true })
             .then(res => {
                 const data = res?.data;
 
                 // Show a toast after successfully creation of assignment
-                if(data?.insertedId) {
+                if (data?.insertedId) {
                     toast.success('You have successfully created an assignment');
                     reset();
                     setSelectedDate(new Date());
@@ -35,10 +35,12 @@ const CreateAssignment = () => {
 
     return (
         <div>
-            <div className="max-w-lg lg:ms-auto mx-auto text-center my-12">
-                <div className="py-12 px-7 rounded-md bg-white border mx-3">
-                    <h1 className="mb-8 text-3xl font-semibold">Create an assignment</h1>
+            <div className="w-full h-full text-center bg-gray-50 py-12">
+                <div>
+                    <h1 className="mb-8 text-2xl md:text-3xl lg:text-4xl font-semibold capitalize">Create an assignment</h1>
+                </div>
 
+                <div className="py-12 px-7 rounded-md bg-white border max-w-lg lg:ms-auto mx-auto">
                     <form onSubmit={handleSubmit(onSubmit)} className="" action="" method="POST">
                         <div className="space-y-6">
                             {/* Title */}

@@ -35,7 +35,7 @@ const Banner = () => {
 
     return (
         <div className="background-image">
-            <div className='flex flex-col lg:flex-row justify-evenly items-center w-full h-[346px] md:h-[700px] mx-2 md:mx-0'>
+            <div className='flex flex-col lg:flex-row justify-evenly items-center w-full banner-width mx-2 md:mx-0 lg:mx-3 xl:mx-0'>
                 <div className='mt-3 md:mt-6 lg:mt-0 '>
                     <h1 className='text-4xl md:text-7xl font-bold text-gray-100 font-noto-serif'>Assignment Genius</h1>
                     <p className='text-gray-100 text-base md:text-lg w-full md:w-[36rem] mt-2 md:mt-6 font-pt-serif'>Assignment Genius is a service provider that offers high-quality assignment writing services to students and professionals. The platform is known for its commitment to delivering original and timely assignments, which include coursework, research papers, and various other types of academic work. </p>

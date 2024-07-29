@@ -25,3 +25,19 @@
     z-index: 1;
     color: white;
 }
+
+.banner-width{
+    height: 700px;
+}
+
+@media (min-width: 300px) and (max-width: 360px) {
+    .banner-width{
+        height: 420px;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 560px) {
+    .banner-width{
+        height: 346px;
+    }
+}

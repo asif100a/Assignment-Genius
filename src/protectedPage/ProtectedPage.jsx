@@ -10,7 +10,7 @@ const ProtectedPage = ({ children }) => {
 
     if (loading) {
         return (
-            <div className='w-full h-[calc(100vh-300px)] flex justify-center items-center'>
+            <div className='w-full h-[calc(100vh-300px)] flex justify-center items-center bg-gray-50'>
                 <Audio
                     height="80"
                     width="80"

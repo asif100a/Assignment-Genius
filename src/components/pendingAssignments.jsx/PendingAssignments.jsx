@@ -33,7 +33,7 @@ const PendingAssignments = () => {
 
     if (isLoading) {
         return (
-            <div className="w-full h-screen flex justify-center items-center">
+            <div className="w-full h-screen flex justify-center items-center bg-gray-50">
                 <CirclesWithBar
                     height="100"
                     width="100"
@@ -57,32 +57,32 @@ const PendingAssignments = () => {
             </div>
 
             <div className="flex flex-col mt-8">
-                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
+                <div className="-mx-4 overflow-x-auto sm:-mx-6 lg:mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div className="overflow-hidden border-4 border-double border-[#808080] dark:border-gray-700 md:rounded-lg">
+                        <div className="overflow-hidden border-4 border-double border-[#808080] dark:border-gray-700 rounded-lg">
                             <table className="min-w-full">
                                 <thead className="bg-inherit border-b-double dark:bg-gray-800">
                                     <tr>
-                                        <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
                                             <div className="flex items-center gap-x-3">
-                                                <span>Examinee name</span>
+                                                <span className="font-noto-serif font-bold">Examinee name</span>
                                             </div>
                                         </th>
 
-                                        <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            <span>Assignment title</span>
+                                        <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                            <span className="font-noto-serif font-bold">Assignment title</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            <span>Assignment marks</span>
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                            <span className="font-noto-serif font-bold">Assignment marks</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                           <span>Status</span>
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                           <span className="font-noto-serif font-bold">Status</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                           <span>Action</span>
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                           <span className="font-noto-serif font-bold">Action</span>
                                         </th>
                                     </tr>
                                 </thead>

@@ -19,7 +19,7 @@ const Features = () => {
 
     if (isPending) {
         return (
-            <div className="w-full h-screen flex justify-center items-center">
+            <div className="w-full h-screen flex justify-center items-center bg-gray-50">
                 <CirclesWithBar
                     height="100"
                     width="100"

@@ -3,11 +3,9 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { useState } from "react";
 import "./giveMark.css";
 
 const GivingMark = () => {
-    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const { 
         register, 
@@ -74,7 +72,7 @@ const GivingMark = () => {
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="mt-2 text-2xl md:text-3xl lg:text-4xl font-bold font-noto-serif capitalize tracking-tight text-gray-700 sm:text-5xl">Give mark page for assignment</h2>
                 </div>
-                <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-pt-serif leading-8 text-gray-600">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
+                <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-pt-serif leading-8 text-gray-600">Often when coming back from a study abroad semester, students come home with stories of international adventures, nights out, and friends made.</p>
 
                 <div className="isolate mx-auto mt-10">
                     <div className="rounded-3xl p-8 xl:p-10 box-border flex-col justify-center gap-6">

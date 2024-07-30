@@ -34,7 +34,7 @@ const Footer = () => {
                 <hr className="my-6 border-top-single" />
 
                 <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">© Copyright 2021. All Rights Reserved by Assignment Genius.</p>
+                    <p className="text-sm text-gray-500 font-pt-serif dark:text-gray-300">© Copyright 2021. All Rights Reserved by Assignment Genius.</p>
 
                     <div className="flex -mx-2 mt-6 sm:mt-0">
                         <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">

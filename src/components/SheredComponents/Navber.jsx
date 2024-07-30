@@ -55,7 +55,7 @@ const Navber = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <FiMenu className="w-6 h-6" />
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm md:right-0 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0">
+                    <ul tabIndex={0} className="menu menu-sm md:right-0 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 font-noto-serif rounded-box w-52 right-0">
                         {navLinks}
 
                         {
@@ -125,7 +125,7 @@ const Navber = () => {
                                 }
                             </div>
                         </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-2">
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-2 font-noto-serif">
                             <li><Link to={'/my_submitted_assignments'}>My submition</Link></li>
                             <li onClick={handleSignOut}><a>Sign out</a></li>
                         </ul>

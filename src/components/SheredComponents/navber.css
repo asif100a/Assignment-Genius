@@ -39,3 +39,7 @@
     min-height: auto;
     padding: 4px 8px;
 }
+
+.btn-border{
+    border: 4px double gray;
+}

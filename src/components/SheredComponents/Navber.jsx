@@ -130,9 +130,9 @@ const Navber = () => {
                             <li onClick={handleSignOut}><a>Sign out</a></li>
                         </ul>
                     </div> ||
-                    <div className="mr-2 space-x-4">
-                        <Link to={'/register'} className="btn">Register</Link>
-                        <Link to={'/sign_in'} className="btn">Sign in</Link>
+                    <div className="xl:mr-2 xl:space-x-4 lg:flex lg:flex-col lg:justify-center lg:gap-1 xl:block">
+                        <Link to={'/register'} className="btn bg-inherit btn-border ease-in-out transition-all duration-300 hover:bg-gray-600 hover:text-white font-pt-serif">Register</Link>
+                        <Link to={'/sign_in'} className="btn bg-inherit btn-border ease-in-out transition-all duration-300 hover:bg-gray-600 hover:text-white font-pt-serif">Sign in</Link>
                     </div>
                 }
             </div>

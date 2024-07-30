@@ -99,7 +99,7 @@ const AssignmentDetails = () => {
         <div className="py-12 relative bg-gray-50">
             <div className="mx-auto px-6 max-w-6xl text-gray-500">
                 <div className="text-center">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-950 dark:text-white font-semibold font-noto-serif">Assignment details</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-950 dark:text-white font-semibold font-noto-serif capitalize">Assignment details</h2>
                     <p className="mt-6 text-gray-700 font-pt-serif dark:text-gray-300 w-full md:w-[36rem] mx-auto">See the details about {title} and can take assignment on {title}.</p>
                 </div>
                 <div className="mt-12 max-w-xl mx-auto">

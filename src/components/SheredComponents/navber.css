@@ -11,8 +11,8 @@
 .menu li > *:not(ul, .menu-title, details, .btn):active,
 .menu li > *:not(ul, .menu-title, details, .btn).active,
 .menu li > details > summary:active {
-    background-color: white;
-    color: rgb(79, 78, 78);
+    background-color: inherit;
+    color: var(--body_color);
     font-size: medium;
     border: 4px double gray;
     height: auto;
@@ -21,8 +21,8 @@
 }
 
 .menu li > *:not(ul, .menu-title, details, .btn):hover {
-    background-color: white;
-    color: rgb(79, 78, 78);
+    background-color: inherit;
+    color: var(--body_color);
     font-size: medium;
     border-bottom: 4px double gray;
     height: auto;
@@ -31,10 +31,10 @@
 }
 
 .menu li > *:not(ul, .menu-title, details, .btn) {
-    background-color: white;
-    color: rgb(79, 78, 78);
+    background-color: inherit;
+    color: var(--body_color);
     font-size: medium;
-    border-bottom: 4px double white;
+    border-bottom: 4px double transparent;
     height: auto;
     min-height: auto;
     padding: 4px 8px;
@@ -43,3 +43,19 @@
 .btn-border{
     border: 4px double gray;
 }
+
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .menu li > *:not(ul, .menu-title, details, .btn) {
+        background-color: black;
+    }
+} */

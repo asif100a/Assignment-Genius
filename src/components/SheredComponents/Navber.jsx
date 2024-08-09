@@ -10,7 +10,7 @@ import "./navber.css";
 const Navber = () => {
     const { user, signOutUser } = useAuth();
     // const [userImg, setUserImg] = useState(userDefault);
-    console.log(user)
+    // console.log(user);
     const [theme, setTheme] = useState('light');
 
     const navLinks = <>
@@ -34,7 +34,7 @@ const Navber = () => {
     const handleToggleTheme = (e) => {
         console.log(e.target.checked);
         if(e.target.checked) {
-            setTheme('night');
+            setTheme('dark');
         }
         else{
             setTheme('light');
@@ -43,13 +43,13 @@ const Navber = () => {
 
     useEffect(() => {
         localStorage.setItem('theme', theme);
-        const localThem = localStorage.getItem('theme')
+        const localTheme = localStorage.getItem('theme')
 
-        document.querySelector('html').setAttribute('data-theme', localThem)
+        document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme]);
 
     return (
-        <div className="navbar bg-base-100 border">
+        <div className="navbar bg-color">
             <div className="lg:navbar-start flex-row-reverse lg:flex-row w-full justify-between">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -90,7 +90,7 @@ const Navber = () => {
 
                 <Link className="text-3xl flex gap-2 justify-center items-center">
                     <img src={logo} alt="Logo" className="w-16 h-20" />
-                    <span className="text-gray-600 playwrite-au-tas">Assignment Genius</span>
+                    <span className="text-gray-600 text-color playwrite-au-tas">Assignment Genius</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

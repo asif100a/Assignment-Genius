@@ -7,9 +7,19 @@
 }
 
 .link-border div a {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid transparent;
 }
 
 .link-border div a:hover {
     border-bottom: 2px solid gray;
+}
+
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
 }

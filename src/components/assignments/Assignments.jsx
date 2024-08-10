@@ -206,7 +206,7 @@ const Assignments = () => {
                             </div>
 
                             <div className="flex justify-center mt-6 mb-2">
-                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium font-pt-serif text-color ease-in-out transition duration-300 input-btn">View assignment</button></Link>
+                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium font-pt-serif text-color ease-in-out transition duration-300 input-btn hover:text-gray-50">View assignment</button></Link>
                             </div>
                         </div>
                     ))

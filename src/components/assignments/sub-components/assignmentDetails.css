@@ -5,3 +5,36 @@
 .btn-border{
     border: 4px double gray;
 }
+
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
+}
+
+/* Submit button style */
+.input-btn {
+    background-color: var(--input_button);
+}
+.input-btn:hover {
+    background-color: #4b5563;
+}
+
+/* Gradient color */
+[data-theme= 'light'] {
+    --from_gradient: #9ca3af;
+    --to_gradient: #fff;
+}
+[data-theme= 'dark'] {
+    --from_gradient: #19191a;
+    --to_gradient: #3b3b58;
+}
+
+.background-gradient{
+    background: linear-gradient(180deg, var(--from_gradient), var(--to_gradient));
+}
+

@@ -96,16 +96,16 @@ const AssignmentDetails = () => {
     };
 
     return (
-        <div className="py-12 relative bg-gray-50">
-            <div className="mx-auto px-6 max-w-6xl text-gray-500">
+        <div className="py-12 relative bg-color">
+            <div className="mx-auto px-6 max-w-6xl text-color">
                 <div className="text-center">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-950 dark:text-white font-semibold font-noto-serif capitalize">Assignment details</h2>
-                    <p className="mt-6 text-gray-700 font-pt-serif dark:text-gray-300 w-full md:w-[36rem] mx-auto">See the details about {title} and can take assignment on {title}.</p>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl text-color font-semibold font-noto-serif capitalize">Assignment details</h2>
+                    <p className="mt-6 text-color font-pt-serif w-full md:w-[36rem] mx-auto">See the details about {title} and can take assignment on {title}.</p>
                 </div>
                 <div className="mt-12 max-w-xl mx-auto">
 
                     <div className="relative group overflow-hidden p-8 rounded-xl bg-inherit card-border dark:bg-gray-900">
-                        <div aria-hidden="true" className="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-gray-400 to-white dark:from-white dark:to-white blur-2xlOpacity-25 darkOpacity-5 dark:group-hoverOpacity-10"></div>
+                        <div aria-hidden="true" className="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 background-gradient"></div>
                         <div className="relative">
                             <div className="border border-gray-500/10 flex relative *:relative *:size-12 *:m-auto size-16 rounded-lg dark:bg-gray-900 dark:border-white/15 before:rounded-[6px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950">
                                 <img src={thumbnail_img} alt="Thumbnail" className="w-12 h-12" />
@@ -113,7 +113,7 @@ const AssignmentDetails = () => {
 
                             <div className="mt-6 pb-6 rounded-b-[--card-border-radius]">
                                 <h1 className="text-2xl font-medium mb-6 font-pt-serif">{title}</h1>
-                                <p className="text-gray-700 dark:text-gray-300 font-pt-serif">{description}</p>
+                                <p className="text-color font-pt-serif">{description}</p>
                             </div>
                             <div className="space-y-2">
                                 <div className="flex gap-2 items-center">
@@ -135,7 +135,7 @@ const AssignmentDetails = () => {
                             </div>
                             <div className="flex gap-3 -mb-8 py-4 border-t border-gray-200 dark:border-gray-800 mt-6">
 
-                                <button onClick={handleShowModal} className="relative inline-flex items-center justify-center px-5 md:px-10 py-2 md:py-4 overflow-hidden font-bold tracking-tighter text-gray-700 bg-inherit btn-border font-pt-serif ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white rounded-lg group">
+                                <button onClick={handleShowModal} className="relative inline-flex items-center justify-center px-5 md:px-10 py-2 md:py-4 overflow-hidden font-bold tracking-tighter text-color bg-inherit btn-border font-pt-serif ease-in-out transition duration-300 input-btn hover:text-gray-50 rounded-lg group">
                                     <span className="relative">Take assignment</span>
                                 </button>
 

@@ -44,6 +44,10 @@
     border: 4px double gray;
 }
 
+.border-bottom{
+    border-bottom: 4px double gray;
+}
+
 /* Dark Mode theme And Colors */
 .bg-color {
     background-color: var(--body_background);
@@ -52,6 +56,14 @@
 
 .text-color {
     color: var(--body_color);
+}
+
+/* Authentication button style */
+.input-btn {
+    background-color: var(--input_button);
+}
+.input-btn:hover {
+    background-color: #4b5563;
 }
 
 /* @media (prefers-color-scheme: dark) {

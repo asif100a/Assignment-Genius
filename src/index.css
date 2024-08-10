@@ -7,9 +7,11 @@
 :root {
     --body_background: #f9fafb;
     --body_color: #374151;
+    --input_button: inherit;
 }
 
 [data-theme= "dark"] {
     --body_background: #3c475e;
     --body_color: #f9fafb;
+    --input_button: inherit;
 }

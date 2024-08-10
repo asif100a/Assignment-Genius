@@ -5,3 +5,21 @@
 .btn-border{
     border: 4px double gray;
 }
+
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
+}
+
+/* Submit button style */
+.input-btn {
+    background-color: var(--input_button);
+}
+.input-btn:hover {
+    background-color: #4b5563;
+}

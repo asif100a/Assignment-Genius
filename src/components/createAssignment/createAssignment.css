@@ -12,6 +12,24 @@
     border-radius: 8px;
 }
 
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
+}
+
+/* Submit button style */
+.input-btn {
+    background-color: var(--input_button);
+}
+.input-btn:hover {
+    background-color: #4b5563;
+}
+
 @media (min-width: 300px) and (max-width: 360px) {
     .border-width{
         width: 240px;

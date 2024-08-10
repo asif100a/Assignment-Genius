@@ -9,12 +9,12 @@ import './faq.css';
 const Faq = () => {
     return (
         <section className="bg-color py-12">
-            <div className="container px-6 mx-auto">
+            <div className="container max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-color capitalize text-center">Frequently asked questions(FAQ)</h1>
 
-                <div className="grid grid-cols-1 w-fit gap-8 mx-auto mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 w-fit gap-8 mx-auto mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
                     {/* FAQ-1 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full md:w-[332px] lg:w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">What do I do if I encounter technical issues while submitting an assignment online?</h1>
                             
@@ -26,7 +26,7 @@ const Faq = () => {
                         </div>
                     </div>
                     {/* FAQ-2 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">How do I know when my assignment is due?</h1>
                             
@@ -38,7 +38,7 @@ const Faq = () => {
                         </div>
                     </div>
                     {/* FAQ-3 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full md:w-[332px] lg:w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">Can I submit multiple files for a single assignment ?</h1>
                             
@@ -50,7 +50,7 @@ const Faq = () => {
                         </div>
                     </div>
                     {/* FAQ-4 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full md:w-[332px] lg:w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">How will I receive feedback on my submitted assignments ?</h1>
                             
@@ -62,7 +62,7 @@ const Faq = () => {
                         </div>
                     </div>
                     {/* FAQ-5 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full md:w-[332px] lg:w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">What criteria are used for grading assignments ?</h1>
                             
@@ -74,7 +74,7 @@ const Faq = () => {
                         </div>
                     </div>
                     {/* FAQ-6 */}
-                    <div className='w-full md:w-[332px] lg:w-[424px] faq-border'>
+                    <div className='w-full md:w-[332px] lg:w-full faq-border'>
                         <div>
                             <h1 className="text-xl font-semibold text-color">Where can I find additional resources to help with my assignments ?</h1>
                             

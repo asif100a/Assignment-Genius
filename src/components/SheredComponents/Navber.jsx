@@ -49,7 +49,7 @@ const Navber = () => {
     }, [theme]);
 
     return (
-        <div className="navbar bg-color">
+        <div className="navbar bg-color border-bottom">
             <div className="lg:navbar-start flex-row-reverse lg:flex-row w-full justify-between">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -131,8 +131,8 @@ const Navber = () => {
                         </ul>
                     </div> ||
                     <div className="xl:mr-2 xl:space-x-4 lg:flex lg:flex-col lg:justify-center lg:gap-1 xl:block">
-                        <Link to={'/register'} className="btn bg-inherit btn-border ease-in-out transition-all duration-300 hover:bg-gray-600 hover:text-white font-pt-serif">Register</Link>
-                        <Link to={'/sign_in'} className="btn bg-inherit btn-border ease-in-out transition-all duration-300 hover:bg-gray-600 hover:text-white font-pt-serif">Sign in</Link>
+                        <Link to={'/register'} className="btn btn-border ease-in-out transition-all duration-300 text-color input-btn font-pt-serif">Register</Link>
+                        <Link to={'/sign_in'} className="btn btn-border ease-in-out transition-all duration-300 text-color input-btn font-pt-serif">Sign in</Link>
                     </div>
                 }
             </div>

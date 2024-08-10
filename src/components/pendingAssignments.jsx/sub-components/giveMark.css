@@ -5,3 +5,33 @@
 .btn-border{
     border: 4px double gray;
 }
+
+/* Dark Mode theme And Colors */
+.bg-color {
+    background-color: var(--body_background);
+    color: var(--body_color);
+}
+
+.text-color {
+    color: var(--body_color);
+}
+
+/* Submit button style */
+.input-btn {
+    background-color: var(--input_button);
+}
+.input-btn:hover {
+    background-color: #4b5563;
+}
+
+/* Handle border Mode */
+[data-theme = 'light'] {
+    --border_color: #374151;
+}
+[data-theme = 'dark'] {
+    --border_color: #f9fafb;
+}
+
+.border-custom {
+    border: 1px solid var(--border_color);
+}

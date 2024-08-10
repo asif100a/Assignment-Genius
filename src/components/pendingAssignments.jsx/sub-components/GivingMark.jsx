@@ -67,36 +67,36 @@ const GivingMark = () => {
     }
 
     return (
-        <div className="bg-gray-50 py-8 sm:py-12">
+        <div className="bg-color py-8 sm:py-12">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
-                    <h2 className="mt-2 text-2xl md:text-3xl lg:text-4xl font-bold font-noto-serif capitalize tracking-tight text-gray-700 sm:text-5xl">Give mark page for assignment</h2>
+                    <h2 className="mt-2 text-2xl md:text-3xl lg:text-4xl font-bold font-noto-serif capitalize tracking-tight text-color sm:text-5xl">Give mark page for assignment</h2>
                 </div>
-                <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-pt-serif leading-8 text-gray-600">Often when coming back from a study abroad semester, students come home with stories of international adventures, nights out, and friends made.</p>
+                <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-pt-serif leading-8 text-color">Often when coming back from a study abroad semester, students come home with stories of international adventures, nights out, and friends made.</p>
 
                 <div className="isolate mx-auto mt-10">
                     <div className="rounded-3xl p-8 xl:p-10 box-border flex-col justify-center gap-6">
                         <div className="">
-                            <h3 id="tier-startup" className="text-2xl font-semibold font-noto-serif leading-8 text-gray-700">Submitted info</h3>
+                            <h3 id="tier-startup" className="text-2xl font-semibold font-noto-serif leading-8 text-color">Submitted info</h3>
                             <div className="mt-6 flex flex-col gap-y-1 font-pt-serif">
                                 <p className="text-base font-semibold">PDF or doc link:</p>
                                 <Link className="hover:text-blue-500 text-orange-600 hover:underline whitespace-nowrap overflow-x-auto py-2 md:py-0">{doc_link}</Link>
                             </div>
                             <div className="mt-6 flex flex-col gap-y-1 font-pt-serif">
-                                <p className="text-base font-semibold">Student notes: </p>
-                                <p className="text-gray-500">{note}</p>
+                                <p className="text-base text-color font-semibold">Student notes: </p>
+                                <p className="text-color">{note}</p>
                             </div>
 
                         </div>
 
-                        <hr className="my-6 border border-gray-700 border-dashed" />
+                        <hr className="my-6 border-custom" />
 
                         <div>
-                            <h3 id="tier-startup" className="text-2xl font-semibold font-noto-serif leading-8 text-gray-700">Mark field for the assignment</h3>
+                            <h3 id="tier-startup" className="text-2xl font-semibold font-noto-serif leading-8 text-color">Mark field for the assignment</h3>
 
                             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 max-w-sm rounded-xl mt-6">
                                 <div>
-                                    <label htmlFor="obtained_mark" className="mb-1 font-pt-serif">Mark of the assignment:</label>
+                                    <label htmlFor="obtained_mark" className="mb-1 text-color font-pt-serif">Mark of the assignment:</label>
                                     <input
                                         type="text"
                                         name="obtained_mark"

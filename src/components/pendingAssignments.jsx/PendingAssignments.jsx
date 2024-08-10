@@ -33,7 +33,7 @@ const PendingAssignments = () => {
 
     if (isLoading) {
         return (
-            <div className="w-full h-screen flex justify-center items-center bg-gray-50">
+            <div className="w-full h-screen flex justify-center items-center bg-color">
                 <CirclesWithBar
                     height="100"
                     width="100"
@@ -51,42 +51,42 @@ const PendingAssignments = () => {
     }
 
     return (
-        <section className="container px-4 mx-auto py-12 bg-gray-50">
+        <section className="container px-4 mx-auto py-12 bg-color">
             <div className="">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-semibold font-noto-serif text-gray-800 dark:text-white capitalize">The list of pending assignments</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-semibold font-noto-serif text-color capitalize">The list of pending assignments</h2>
             </div>
 
             <div className="flex flex-col mt-8">
                 <div className="-mx-4 overflow-x-auto sm:-mx-6 lg:mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div className="overflow-hidden border-4 border-double border-[#808080] dark:border-gray-700 rounded-lg">
+                        <div className="overflow-hidden border-4 border-double border-[#808080] rounded-lg">
                             <table className="min-w-full">
-                                <thead className="bg-inherit border-b-double dark:bg-gray-800">
+                                <thead className="bg-inherit border-b-double">
                                     <tr>
-                                        <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                        <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-color">
                                             <div className="flex items-center gap-x-3">
                                                 <span className="font-noto-serif font-bold">Examinee name</span>
                                             </div>
                                         </th>
 
-                                        <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                        <th scope="col" className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-color">
                                             <span className="font-noto-serif font-bold">Assignment title</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-color">
                                             <span className="font-noto-serif font-bold">Assignment marks</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-color">
                                            <span className="font-noto-serif font-bold">Status</span>
                                         </th>
 
-                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                                        <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-color">
                                            <span className="font-noto-serif font-bold">Action</span>
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-inherit divide-y-2 divide-[#808080] dark:divide-[#808080] dark:bg-gray-900">
+                                <tbody className="bg-inherit divide-y-2 divide-[#808080]">
                                     {
                                         assignments?.map(assignment => <TableRow
                                             key={assignment._id}

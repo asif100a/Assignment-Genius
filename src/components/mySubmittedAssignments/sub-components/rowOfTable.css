@@ -1,17 +1,3 @@
-.btn-border{
-    border: 4px double gray;
-}
-
-.card-border{
-    border: 4px double gray;
-    border-radius: 12px;
-}
-
-.mini-btn-border{
-    border: 4px double gray;
-    border-radius: 8px;
-}
-
 /* Dark Mode theme And Colors */
 .bg-color {
     background-color: var(--body_background);

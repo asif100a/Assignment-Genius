@@ -11,7 +11,7 @@ import "./assignment.css";
 
 const Assignments = () => {
     const { user } = useAuth();
-    console.log(user)
+    // console.log(user)
 
     const [sortBy, setSortBy] = useState("");
     const [assignments, setAssignments] = useState([]);
@@ -30,7 +30,7 @@ const Assignments = () => {
 
     if (loading) {
         return (
-            <div className="w-full h-screen flex justify-center items-center bg-gray-50">
+            <div className="w-full h-screen flex justify-center items-center bg-color">
                 <CirclesWithBar
                     height="100"
                     width="100"
@@ -154,9 +154,9 @@ const Assignments = () => {
     };
 
     return (
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-color">
             <div className="flex justify-center items-center dropdown dropdown-bottom">
-                <button tabIndex={0} role="button" className="relative text-gray-700 btn-border ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white px-4 py-3 inline-flex items-center justify-center font-bold font-pt-serif overflow-hidden group rounded-md">
+                <button tabIndex={0} role="button" className="relative text-color btn-border ease-in-out transition duration-300 input-btn hover:text-gray-50 px-4 py-3 inline-flex items-center justify-center font-bold font-pt-serif overflow-hidden group rounded-md">
                     <span className="relative">Sort by level</span>
                     <span><LiaLevelUpAltSolid className="" /></span>
                 </button>
@@ -173,21 +173,21 @@ const Assignments = () => {
                     assignments.map(assignment => (
                         <div key={assignment?._id} className={`w-full max-w-sm p-6 bg-inherit card-border`}>
                             <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center md:gap-3">
-                                <h2 className="mt-2 text-xl font-semibold font-noto-serif text-gray-800 dark:text-white md:mt-0 w-full md:w-72">{assignment?.title}</h2>
+                                <h2 className="mt-2 text-xl font-semibold font-noto-serif text-color dark:text-white md:mt-0 w-full md:w-72">{assignment?.title}</h2>
                                 <img className="object-cover w-20 h-20 border-2 border-gray-700 rounded-full dark:border-blue-400" alt="Testimonial avatar" src={assignment?.thumbnail_img} />
                             </div>
 
                             <div className="px-0 pb-4 mx-auto flex flex-col justify-start items-start">
-                                <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                                    <BsFileEarmarkCheckFill className="text-gray-600 w-6 h-6" />
+                                <div className="flex items-center mt-4">
+                                    <BsFileEarmarkCheckFill className="text-color w-6 h-6" />
 
-                                    <h1 className="px-2 font-bold font-pt-serif">Marks: <span className="text-gray-500 font-medium">{assignment?.marks}</span></h1>
+                                    <h1 className="px-2 text-color font-bold font-pt-serif">Marks: <span className="text-color font-medium">{assignment?.marks}</span></h1>
                                 </div>
 
-                                <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                                    <SiLevelsdotfyi className="text-gray-600 w-5 h-5" />
+                                <div className="flex items-center mt-4">
+                                    <SiLevelsdotfyi className="text-color w-5 h-5" />
 
-                                    <h1 className="px-2 font-bold font-pt-serif">Level: <span className={`font-medium ${assignment?.level === 'Easy' && 'text-green-600'} ${assignment?.level === 'Medium' && 'text-blue-600'} ${assignment?.level === 'Hard' && 'text-red-500'}`}>{assignment?.level}</span></h1>
+                                    <h1 className="px-2 text-color font-bold font-pt-serif">Level: <span className={`font-medium ${assignment?.level === 'Easy' && 'text-green-600'} ${assignment?.level === 'Medium' && 'text-blue-600'} ${assignment?.level === 'Hard' && 'text-red-500'}`}>{assignment?.level}</span></h1>
                                 </div>
                             </div>
 
@@ -206,44 +206,14 @@ const Assignments = () => {
                             </div>
 
                             <div className="flex justify-center mt-6 mb-2">
-                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium font-pt-serif text-gray-700 ease-in-out transition duration-300 hover:bg-gray-600 hover:text-white dark:text-blue-300">View assignment</button></Link>
+                                <Link to={`/assignment_details/${assignment?._id}`} className="" tabIndex="0" role="link"><button className="btn-border px-3 py-2 text-lg font-medium font-pt-serif text-color ease-in-out transition duration-300 input-btn">View assignment</button></Link>
                             </div>
                         </div>
                     ))
                 }
             </div>
 
-            <div className="flex items-center justify-between mt-6">
-                <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                    </svg>
-
-                    <span>
-                        previous
-                    </span>
-                </a>
-
-                <div className="items-center hidden lg:flex gap-x-3">
-                    <a href="#" className="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">13</a>
-                    <a href="#" className="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">14</a>
-                </div>
-
-                <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <span>
-                        Next
-                    </span>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                    </svg>
-                </a>
-            </div>
+            {/*  */}
         </section >
     );
 };
